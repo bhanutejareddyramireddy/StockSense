@@ -57,7 +57,7 @@ class PersistenceStore:
                     self.db = firestore.client()
                     self.is_demo_mode = False
                     logger.info("Firebase Firestore connected via service account credentials: %s", resolved_cred)
-                elif settings.FIREBASE_PROJECT_ID:
+                elif settings.FIREBASE_PROJECT_ID and not (os.getenv("VERCEL") or os.getenv("AWS_LAMBDA_FUNCTION_NAME")):
                     try:
                         firebase_admin.initialize_app(options={"projectId": settings.FIREBASE_PROJECT_ID})
                         self.db = firestore.client()
@@ -67,7 +67,8 @@ class PersistenceStore:
                         logger.info("Firebase Project ID set (%s); service account key required for direct server access.", settings.FIREBASE_PROJECT_ID)
                         self.is_demo_mode = True
                 else:
-                    logger.info("No Firebase credentials provided. Operating in explicitly labeled Demo Mode.")
+                    logger.info("No Firebase service account credentials provided. Operating in Demo / Local mode.")
+                    self.is_demo_mode = True
         except Exception as e:
             logger.warning("Firebase Admin initialization failed or not configured (%s). Running in Demo Mode.", str(e))
             self.is_demo_mode = True

@@ -1,0 +1,13 @@
+sku,name,category,available_stock,reserved_stock,inbound_stock,lead_days,moq,pack_size,unit_cost_inr,selling_price_inr,is_perishable,expiry_date,batch_number,vendor_name,vendor_phone,vendor_email
+SKU-URG01,Basmati Royal Biryani Rice 5kg,Grains & Staples,8,0,0,4,10,1,420.0,550.0,False,,BATCH-RICE-2026,Royal Agri Mills,+919876543210,orders@royalagri.in
+SKU-URG02,A2 Organic Farm Fresh Milk 1L,Dairy & Refrigerated,0,0,0,2,25,5,65.0,85.0,True,2026-10-25,LOT-A2-OCT,Gomathee Organic Dairy,+919811223344,supply@gomatheedairy.com
+SKU-OVR01,Kashmiri Mogra Saffron 1g,Gourmet & Spices,300,0,0,7,5,1,380.0,520.0,False,2028-06-30,SAF-KASH-88,Himalayan Herbs & Spices,+919877001122,kashmir@himalayanspices.com
+SKU-INB01,Sunflower Cooking Oil 5L Can,Oils & Ghee,14,0,80,5,10,4,560.0,690.0,False,2027-08-15,OIL-SUN-5L,Adani Wilmar Depot,+919822334455,orders@wilmaroils.in
+SKU-RSV01,Crystal White Sugar 5kg,Grains & Staples,65,50,0,3,10,5,195.0,240.0,False,,SUG-OCT-2026,Deccan Agro Traders,+919833445566,deccan@agrosugar.in
+SKU-MOQ01,Japanese Matcha Green Tea Tin 100g,Beverages & Tea,6,0,0,5,50,10,450.0,650.0,False,2027-12-31,TEA-MAT-01,Zen Tea Imports,+919844556677,procure@zentea.in
+SKU-PCK01,Instant Masala Noodles Master Carton (Pack of 24),Packaged Foods,18,0,0,3,24,24,280.0,360.0,False,2027-05-30,MAG-NOOD-24,Nestle Wholesale Hub,+919855667788,distributor@fmcgwholesalers.in
+SKU-PER01,Malai Fresh Paneer 200g,Dairy & Refrigerated,48,0,0,2,10,5,75.0,100.0,True,2026-10-21,PAN-OCT-21,Heritage Foods Depot,+919866778899,freshdairy@heritage.in
+SKU-PER02,Greek Blueberry Yogurt 150g,Dairy & Refrigerated,8,0,0,2,12,6,50.0,70.0,True,2026-11-20,YOG-NOV-20,Epigamia Dairy Distribution,+919877889900,orders@epigamia.com
+SKU-ABC01,Cold-Pressed Extra Virgin Olive Oil 1L,Oils & Ghee,12,0,0,4,6,6,1100.0,1450.0,False,2028-01-15,BORG-EVOO-1L,Borges Mediterranean Imports,+919888990011,imports@mediterraneanfoods.in
+SKU-CYC01,South Indian Filter Coffee Decoction Powder 500g,Beverages & Tea,15,0,0,3,10,5,280.0,360.0,False,2027-09-10,COF-CHIK-500,Chikmagalur Coffee Planters,+919899001122,coffee@coffeestate.in
+SKU-CEN01,Chakki Fresh Whole Wheat Atta 10kg,Grains & Staples,5,0,0,3,10,1,360.0,440.0,False,,AASH-ATTA-10,ITC Consumer Foods Hub,+919800112233,itcorders@itcwholesale.in

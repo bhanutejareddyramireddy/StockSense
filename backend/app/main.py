@@ -52,8 +52,10 @@ for r in api_routers:
     # Also mount directly without prefix so both /api/path and /path resolve seamlessly
     app.include_router(r)
 
-# Static frontend directory
+# Static frontend directory (prefer public for Vercel, fallback to frontend)
+PUBLIC_DIR = Path(__file__).resolve().parent.parent.parent / "public"
 FRONTEND_DIR = Path(__file__).resolve().parent.parent.parent / "frontend"
+STATIC_DIR = PUBLIC_DIR if PUBLIC_DIR.exists() else FRONTEND_DIR
 
 class NoCacheStaticFiles(StaticFiles):
     async def get_response(self, path: str, scope):
@@ -63,19 +65,19 @@ class NoCacheStaticFiles(StaticFiles):
         response.headers["Expires"] = "0"
         return response
 
-if FRONTEND_DIR.exists():
-    css_dir = FRONTEND_DIR / "css"
+if STATIC_DIR.exists():
+    css_dir = STATIC_DIR / "css"
     if css_dir.exists():
         app.mount("/css", NoCacheStaticFiles(directory=str(css_dir)), name="css")
 
-    js_dir = FRONTEND_DIR / "js"
+    js_dir = STATIC_DIR / "js"
     if js_dir.exists():
         app.mount("/js", NoCacheStaticFiles(directory=str(js_dir)), name="js")
 
-    app.mount("/static", NoCacheStaticFiles(directory=str(FRONTEND_DIR)), name="static")
+    app.mount("/static", NoCacheStaticFiles(directory=str(STATIC_DIR)), name="static")
 
-    # Mount entire frontend directory at root with html=True
-    app.mount("/", NoCacheStaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
+    # Mount entire static directory at root with html=True
+    app.mount("/", NoCacheStaticFiles(directory=str(STATIC_DIR), html=True), name="frontend")
 
 if __name__ == "__main__":
     import uvicorn

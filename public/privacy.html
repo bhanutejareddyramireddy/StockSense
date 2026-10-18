@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — StockSense</title>
+  <meta name="description" content="Privacy Policy for StockSense Inventory Forecasting & Replenishment platform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-primary: #1d68ed;
+      --color-primary-hover: #1557d4;
+      --color-primary-light: #eff6ff;
+      --color-primary-border: #bfdbfe;
+      --color-navy: #0b1f48;
+      --color-slate-900: #0f172a;
+      --color-slate-800: #1e293b;
+      --color-slate-700: #334155;
+      --color-slate-600: #475569;
+      --color-slate-500: #64748b;
+      --color-slate-400: #94a3b8;
+      --color-slate-200: #e2e8f0;
+      --color-slate-100: #f8fafc;
+      --color-slate-50: #f1f5f9;
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-slate-900);
+      background-color: #f8fafc;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Sticky Navigation Bar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0.85rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .brand-logo-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+
+    .brand-icon-box {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+    }
+
+    .brand-tagline {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--color-slate-500);
+      margin-top: 1px;
+    }
+
+    /* Nav Center Links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-size: 0.925rem;
+      font-weight: 600;
+      color: var(--color-slate-600);
+      transition: color 0.15s ease;
+      position: relative;
+      padding: 0.35rem 0;
+    }
+
+    .nav-link:hover {
+      color: var(--color-primary);
+    }
+
+    /* Nav Action Buttons (Pill buttons matching screenshot) */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .btn-pill-login {
+      padding: 0.52rem 1.45rem;
+      border: 1.5px solid #2563eb;
+      background: #ffffff;
+      color: #2563eb;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-pill-login:hover {
+      background: #eff6ff;
+      border-color: #1d4ed8;
+      color: #1d4ed8;
+    }
+
+    .btn-pill-get-started {
+      padding: 0.55rem 1.5rem;
+      background: var(--color-primary);
+      background-image: linear-gradient(180deg, #256be8 0%, #1757d4 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(29, 104, 237, 0.28);
+      transition: all 0.15s ease;
+    }
+
+    .btn-pill-get-started:hover {
+      background-image: linear-gradient(180deg, #2d74f3 0%, #1551c9 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(29, 104, 237, 0.36);
+    }
+
+    /* Main Container */
+    .legal-page-wrapper {
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.75rem 2rem 5rem 2rem;
+      flex: 1;
+    }
+
+    /* Page Header */
+    .legal-page-header {
+      margin-bottom: 2.25rem;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      letter-spacing: -0.025em;
+      margin-bottom: 0.45rem;
+    }
+
+    .page-subtitle {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--color-slate-500);
+    }
+
+    /* Two-Column Grid */
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* Left Sidebar TOC Card */
+    .sidebar-card {
+      background: #ffffff;
+      border: 1px solid var(--color-slate-200);
+      border-radius: 16px;
+      padding: 1.25rem 0.9rem;
+      position: sticky;
+      top: 90px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+
+    .toc-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 0.65rem 1rem;
+      border-radius: 10px;
+      font-size: 0.925rem;
+      font-weight: 500;
+      color: var(--color-slate-600);
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .toc-link:hover {
+      background: var(--color-slate-100);
+      color: var(--color-slate-900);
+    }
+
+    .toc-link.active {
+      background: var(--color-primary-light);
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+
+    /* Right Content Card */
+    .content-card {
+      background: #ffffff;
+      border: 1px solid var(--color-slate-200);
+      border-radius: 16px;
+      padding: 2.5rem 2.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+
+    .legal-section {
+      border-bottom: 1px solid var(--color-slate-50);
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .legal-section:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 0.85rem;
+      scroll-margin-top: 105px;
+    }
+
+    .section-paragraph {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--color-slate-700);
+      margin-bottom: 0.85rem;
+    }
+
+    .section-paragraph:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Custom bulleted list matching screenshot */
+    .legal-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.65rem;
+      margin-bottom: 1rem;
+    }
+
+    .legal-list li {
+      position: relative;
+      padding-left: 1.35rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--color-slate-700);
+    }
+
+    .legal-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.35rem;
+      color: var(--color-navy);
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+
+    .legal-list li strong {
+      color: var(--color-slate-900);
+    }
+
+    .legal-link {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .legal-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .app-footer {
+      background: #ffffff;
+      border-top: 1px solid var(--color-slate-200);
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--color-slate-500);
+      margin-top: auto;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--color-slate-600);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 960px) {
+      .navbar {
+        padding: 0.85rem 1.5rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .legal-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-card {
+        position: relative;
+        top: 0;
+      }
+      .content-card {
+        padding: 1.75rem 1.5rem;
+      }
+      .app-footer {
+        flex-direction: column;
+        gap: 1.25rem;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="navbar">
+    <a href="index.html" class="brand-logo-group">
+      <div class="brand-icon-box">
+        <!-- StockSense 3D Blue Box Icon -->
+        <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4L42 14V34L24 44L6 34V14L24 4Z" fill="#1e40af"/>
+          <path d="M24 4L42 14L24 24L6 14L24 4Z" fill="#3b82f6"/>
+          <path d="M6 14L24 24V44L6 34V14Z" fill="#1d4ed8"/>
+          <path d="M42 14L24 24V44L42 34V14Z" fill="#172554"/>
+          <path d="M18 28L24 16L30 28M24 18V32" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="brand-text-block">
+        <div class="brand-title">StockSense</div>
+        <div class="brand-tagline">Know Your Stock. Plan Ahead.</div>
+      </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html#home" class="nav-link">Home</a>
+      <a href="index.html#features" class="nav-link">Features</a>
+      <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+      <a href="index.html#about" class="nav-link">About</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="login.html" class="btn-pill-login">Login</a>
+      <a href="login.html" class="btn-pill-get-started">Get Started</a>
+    </div>
+  </header>
+
+  <!-- Legal Page Main Wrapper -->
+  <div class="legal-page-wrapper">
+
+    <!-- Header Section -->
+    <div class="legal-page-header">
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="page-subtitle">Last updated: 17 October 2026</p>
+    </div>
+
+    <!-- Two-Column Grid -->
+    <div class="legal-grid">
+
+      <!-- Left Sidebar TOC Card -->
+      <aside class="sidebar-card">
+        <nav class="toc-nav" id="tocNav">
+          <a href="#section-1" class="toc-link active" data-section="section-1">1. Introduction</a>
+          <a href="#section-2" class="toc-link" data-section="section-2">2. Information We Collect</a>
+          <a href="#section-3" class="toc-link" data-section="section-3">3. How We Use Information</a>
+          <a href="#section-4" class="toc-link" data-section="section-4">4. Data Sharing</a>
+          <a href="#section-5" class="toc-link" data-section="section-5">5. Data Security</a>
+          <a href="#section-6" class="toc-link" data-section="section-6">6. Data Retention</a>
+          <a href="#section-7" class="toc-link" data-section="section-7">7. Your Rights</a>
+          <a href="#section-8" class="toc-link" data-section="section-8">8. Cookies and Tracking</a>
+          <a href="#section-9" class="toc-link" data-section="section-9">9. Third-Party Services</a>
+          <a href="#section-10" class="toc-link" data-section="section-10">10. Changes to this Policy</a>
+          <a href="#section-11" class="toc-link" data-section="section-11">11. Contact Us</a>
+        </nav>
+      </aside>
+
+      <!-- Right Content Card -->
+      <main class="content-card">
+
+        <!-- 1. Introduction -->
+        <section class="legal-section" id="section-1">
+          <h2 class="section-heading">1. Introduction</h2>
+          <p class="section-paragraph">
+            This Privacy Policy explains how StockSense collects, uses, stores, and protects your personal information when you use our website and services.
+          </p>
+        </section>
+
+        <!-- 2. Information We Collect -->
+        <section class="legal-section" id="section-2">
+          <h2 class="section-heading">2. Information We Collect</h2>
+          <p class="section-paragraph">We may collect the following types of information:</p>
+          <ul class="legal-list">
+            <li><strong>Personal information:</strong> name, email address, and account details when you register.</li>
+            <li><strong>Business information:</strong> inventory data, sales data, and related planning information that you upload or enter into the platform.</li>
+            <li><strong>Usage information:</strong> how you interact with the Service, features used, and general analytics data.</li>
+          </ul>
+        </section>
+
+        <!-- 3. How We Use Information -->
+        <section class="legal-section" id="section-3">
+          <h2 class="section-heading">3. How We Use Information</h2>
+          <p class="section-paragraph">We use your information to:</p>
+          <ul class="legal-list">
+            <li>Provide and improve the StockSense platform</li>
+            <li>Process your account and manage access</li>
+            <li>Deliver inventory forecasting and replenishment features</li>
+            <li>Communicate important updates and support messages</li>
+            <li>Ensure security, prevent abuse, and comply with legal obligations</li>
+          </ul>
+        </section>
+
+        <!-- 4. Data Sharing -->
+        <section class="legal-section" id="section-4">
+          <h2 class="section-heading">4. Data Sharing</h2>
+          <p class="section-paragraph">
+            We do not sell your personal or business inventory data to third parties. We may share data only with trusted service providers who assist us in operating our platform (such as secure cloud infrastructure and database hosting) subject to strict confidentiality agreements, or when required by applicable law.
+          </p>
+        </section>
+
+        <!-- 5. Data Security -->
+        <section class="legal-section" id="section-5">
+          <h2 class="section-heading">5. Data Security</h2>
+          <p class="section-paragraph">
+            We implement industry-standard technical and organizational security measures, including TLS encryption in transit, role-based access controls, and protected Firebase storage to guard against unauthorized access, loss, or misuse of your information.
+          </p>
+        </section>
+
+        <!-- 6. Data Retention -->
+        <section class="legal-section" id="section-6">
+          <h2 class="section-heading">6. Data Retention</h2>
+          <p class="section-paragraph">
+            We retain your personal and business data only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, provide ongoing forecasting services, or comply with legal and audit obligations.
+          </p>
+        </section>
+
+        <!-- 7. Your Rights -->
+        <section class="legal-section" id="section-7">
+          <h2 class="section-heading">7. Your Rights</h2>
+          <p class="section-paragraph">
+            Depending on your jurisdiction, you have the right to access, rectify, download, or request the deletion of your personal data stored with StockSense. You may exercise these rights at any time by contacting our privacy compliance team.
+          </p>
+        </section>
+
+        <!-- 8. Cookies and Tracking -->
+        <section class="legal-section" id="section-8">
+          <h2 class="section-heading">8. Cookies and Tracking</h2>
+          <p class="section-paragraph">
+            StockSense uses essential cookies and local storage tokens strictly to maintain your authenticated session, remember UI preferences, and monitor platform performance. We do not use third-party behavioral advertising trackers.
+          </p>
+        </section>
+
+        <!-- 9. Third-Party Services -->
+        <section class="legal-section" id="section-9">
+          <h2 class="section-heading">9. Third-Party Services</h2>
+          <p class="section-paragraph">
+            Our Service may interface with third-party providers (such as Firebase Authentication and Firestore Database). These providers operate under their own independent privacy policies and data protection standards.
+          </p>
+        </section>
+
+        <!-- 10. Changes to this Policy -->
+        <section class="legal-section" id="section-10">
+          <h2 class="section-heading">10. Changes to this Policy</h2>
+          <p class="section-paragraph">
+            We may update this Privacy Policy periodically to reflect enhancements to our service or adjustments in regulatory requirements. Material revisions will be prominently announced on our platform.
+          </p>
+        </section>
+
+        <!-- 11. Contact Us -->
+        <section class="legal-section" id="section-11">
+          <h2 class="section-heading">11. Contact Us</h2>
+          <p class="section-paragraph">
+            If you have questions or inquiries regarding our privacy practices or data governance, please contact our Data Protection Officer at <a href="mailto:privacy@stocksense.ai" class="legal-link">privacy@stocksense.ai</a>.
+          </p>
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-left">
+      <svg width="24" height="24" viewBox="0 0 48 48" fill="none">
+        <path d="M24 4L42 14L24 24L6 14L24 4Z" fill="#3b82f6"/>
+        <path d="M6 14L24 24V44L6 34V14Z" fill="#1d4ed8"/>
+        <path d="M42 14L24 24V44L42 34V14Z" fill="#1e40af"/>
+      </svg>
+      <span>&copy; 2026 StockSense. All rights reserved.</span>
+    </div>
+
+    <div class="footer-links">
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html" style="color: var(--color-primary); font-weight: 600;">Privacy Policy</a>
+      <a href="dashboard.html" style="color: var(--color-primary); font-weight: 600;">Launch Dashboard &rarr;</a>
+    </div>
+  </footer>
+
+  <!-- ScrollSpy Active Link Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tocLinks = document.querySelectorAll('.toc-link');
+      const sections = document.querySelectorAll('.legal-section');
+
+      function setActiveTOC(id) {
+        tocLinks.forEach(link => {
+          if (link.getAttribute('data-section') === id) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      // Smooth scroll on click
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-section');
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+            setActiveTOC(targetId);
+            history.pushState(null, null, '#' + targetId);
+          }
+        });
+      });
+
+      // Scroll observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveTOC(entry.target.id);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '-80px 0px -60% 0px',
+        threshold: 0
+      });
+
+      sections.forEach(sec => observer.observe(sec));
+    });
+  </script>
+
+</body>
+</html>

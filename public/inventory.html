@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products & Inventory — StockSense</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+  <div class="app-layout">
+    <div id="mobile-overlay" class="mobile-overlay"></div>
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <main class="app-main">
+      <header id="app-header" class="app-header"></header>
+
+      <div class="page-container">
+
+        <!-- Controls Header -->
+        <div
+          style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="font-size: 1.25rem; font-weight: 700;">Products & Warehouse Inventory</h2>
+            <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Manage physical stock positions, perishable expiration dates, inbound deliveries, and replenishment
+              parameters.
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+            <button id="btn-view-dataset-analysis" class="btn btn-primary" style="background: linear-gradient(135deg, #1e40af, #2563eb); border: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 2px 8px rgba(37,99,235,0.25);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+              <span>Dataset Intelligence &amp; AI Suggestions</span>
+              <span id="badge-suggestions-count" class="badge" style="background: rgba(255,255,255,0.25); color: #fff; font-size: 0.6875rem;">0</span>
+            </button>
+            <button id="btn-export-csv" class="btn btn-outline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" x2="12" y1="15" y2="3" />
+              </svg>
+              <span>Export CSV</span>
+            </button>
+            <button id="btn-upload-products" class="btn btn-outline"
+              style="border-color: var(--color-brand-blue); color: var(--color-brand-blue); font-weight: 600;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" x2="12" y1="3" y2="15" />
+              </svg>
+              <span>Upload Products (Excel / JSON)</span>
+            </button>
+            <button id="btn-add-product" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <line x1="12" x2="12" y1="5" y2="19" />
+                <line x1="5" x2="19" y1="12" y2="12" />
+              </svg>
+              <span>Add Product</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sample Template Formats Download Card -->
+        <div class="card" style="margin-bottom: 1.25rem; background: linear-gradient(to right, #eff6ff, #f8fafc); border: 1px solid #bfdbfe; border-left: 4px solid #2563eb;">
+          <div class="card-body" style="padding: 0.875rem 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="font-size: 1.6rem;">📥</span>
+              <div>
+                <div style="font-weight: 700; font-size: 0.9375rem; color: #1e3a8a; display: flex; align-items: center; gap: 0.5rem;">
+                  <span>Standard Product &amp; Inventory Sample Files</span>
+                  <span class="badge badge-primary" style="font-size: 11px;">Schema Reference</span>
+                </div>
+                <div style="font-size: 0.8125rem; color: #475569; margin-top: 2px;">
+                  Download formatted sample files to match your Excel or JSON data format for automated parsing and analytics.
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+              <a href="templates/sample_products_inventory.xlsx" download="sample_products_inventory.xlsx" class="btn btn-sm" style="background: #15803d; color: #ffffff; font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem; text-decoration: none; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Sample Excel (.xlsx)</span>
+              </a>
+              <a href="templates/sample_products_inventory.json" download="sample_products_inventory.json" class="btn btn-sm" style="background: #d97706; color: #ffffff; font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem; text-decoration: none; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Sample JSON (.json)</span>
+              </a>
+              <a href="templates/sample_products_inventory.csv" download="sample_products_inventory.csv" class="btn btn-sm btn-outline" style="font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem; text-decoration: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Sample CSV (.csv)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Executive Dataset Analysis KPI Cards -->
+        <div id="dataset-kpi-summary" class="metrics-grid" style="grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin-bottom: 1.25rem;">
+          <div class="card metric-card" style="border-left: 4px solid var(--color-brand-blue);">
+            <div class="metric-label">Total Inventory Valuation</div>
+            <div id="kpi-val-cost" class="metric-value" style="font-size: 1.375rem;">₹0.00</div>
+            <div id="kpi-val-retail-sub" class="metric-subtext">Retail: ₹0.00 (0% Margin)</div>
+          </div>
+          <div class="card metric-card" style="border-left: 4px solid #d97706;">
+            <div class="metric-label">Immediate Reorder Suggestions</div>
+            <div id="kpi-val-reorders" class="metric-value" style="font-size: 1.375rem; color: #b45309;">0 SKUs</div>
+            <div id="kpi-val-reorders-sub" class="metric-subtext">0 units suggested order</div>
+          </div>
+          <div class="card metric-card" style="border-left: 4px solid var(--color-danger);">
+            <div class="metric-label">Stockout Outages &amp; Shortfalls</div>
+            <div id="kpi-val-stockouts" class="metric-value" style="font-size: 1.375rem; color: var(--color-danger);">0 SKUs</div>
+            <div id="kpi-val-stockouts-sub" class="metric-subtext">Immediate supply attention</div>
+          </div>
+          <div class="card metric-card" style="border-left: 4px solid #059669;">
+            <div class="metric-label">Perishable / Shelf-Life Alerts</div>
+            <div id="kpi-val-perishables" class="metric-value" style="font-size: 1.375rem; color: #047857;">0 Alerts</div>
+            <div id="kpi-val-perishables-sub" class="metric-subtext">0 units at spoilage risk</div>
+          </div>
+        </div>
+
+        <!-- Dynamic Expiry & Spoilage Alert Banner -->
+        <div id="expiry-alert-container"></div>
+
+        <!-- Filter & Search Bar -->
+        <div class="card" style="margin-bottom: 1rem;">
+          <div class="card-body" style="padding: 1rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 240px;">
+              <input type="text" id="search-input" class="form-control"
+                placeholder="Search by SKU, product name, or category...">
+            </div>
+            <div style="width: 200px;">
+              <select id="filter-risk" class="form-select">
+                <option value="ALL">All Risk Levels</option>
+                <option value="Critical">Critical (Shortfall / Stockout)</option>
+                <option value="Warning">Warning (Low Coverage)</option>
+                <option value="Healthy">Healthy Stock</option>
+                <option value="Overstocked">Overstocked (&gt;45d)</option>
+              </select>
+            </div>
+            <div style="width: 220px;">
+              <select id="filter-expiry" class="form-select">
+                <option value="ALL">All Shelf-Life Statuses</option>
+                <option value="PERISHABLE">Perishables Only</option>
+                <option value="SPOILAGE_RISK">⚡ Critical Spoilage Risk</option>
+                <option value="EXPIRING_SOON">⏳ Expiring Soon (&lt; 14 Days)</option>
+                <option value="REORDER_BATCH">🔄 Batch Restock Needed</option>
+                <option value="EXPIRED">❌ Expired Items</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Products Table -->
+        <div class="card">
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Available Stock</th>
+                  <th>Reserved</th>
+                  <th>Inbound</th>
+                  <th>Lead Time</th>
+                  <th>MOQ / Pack</th>
+                  <th>Selling Price</th>
+                  <th>Coverage</th>
+                  <th>Expiry &amp; Shelf Life</th>
+                  <th>Status</th>
+                  <th>AI Suggestion</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="inventory-tbody">
+                <tr>
+                  <td colspan="14" style="text-align: center; padding: 2rem;">Loading inventory catalogue...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Add / Edit Product Modal -->
+  <div id="product-modal" class="modal-backdrop">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-product-title">Add New Product</div>
+        <button id="modal-close" class="btn btn-outline btn-sm">&times;</button>
+      </div>
+      <form id="product-form" style="display: flex; flex-direction: column; flex: 1; min-height: 0; overflow: hidden;">
+        <div class="modal-body">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="prod-sku">SKU Code (Unique ID)</label>
+              <input type="text" id="prod-sku" class="form-control" placeholder="e.g. SKU101 or MILK-1L" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="prod-cat">Category</label>
+              <input type="text" id="prod-cat" class="form-control" placeholder="e.g. Dairy, Grocery, Staples" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-name">Product Name / Title</label>
+            <input type="text" id="prod-name" class="form-control" placeholder="e.g. Organic Pasteurized Whole Milk 1L"
+              required>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="prod-avail">Available Stock (Physical on Hand)</label>
+              <input type="number" id="prod-avail" class="form-control" min="0" value="50" required>
+              <div class="form-help">Physical units available in warehouse.</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="prod-reserved">Reserved / Held Stock</label>
+              <input type="number" id="prod-reserved" class="form-control" min="0" value="0" required>
+              <div class="form-help">Allocated to customer orders; not usable.</div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="prod-inbound">Inbound Stock (Due before need)</label>
+              <input type="number" id="prod-inbound" class="form-control" min="0" value="0" required>
+              <div class="form-help">Shipments arriving before need date.</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="prod-lead">Supplier Lead Time (Days)</label>
+              <input type="number" id="prod-lead" class="form-control" min="1" value="3" required>
+              <div class="form-help">Calendar days from order to delivery.</div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="prod-moq">Supplier MOQ</label>
+              <input type="number" id="prod-moq" class="form-control" min="1" value="5" required>
+              <div class="form-help">Minimum order units.</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="prod-pack">Pack Size Multiple</label>
+              <input type="number" id="prod-pack" class="form-control" min="1" value="1" required>
+              <div class="form-help">Units per master carton.</div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="prod-cost">Unit Cost (INR)</label>
+              <input type="number" id="prod-cost" class="form-control" min="0" step="0.5" value="100.0" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="prod-price">Selling Price (INR)</label>
+              <input type="number" id="prod-price" class="form-control" min="0" step="0.5" value="150.0" required>
+            </div>
+          </div>
+
+          <!-- Perishable / Food Expiry Management -->
+          <div style="border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: 0.5rem;">
+            <div
+              style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.75rem; color: var(--color-primary-900); display: flex; align-items: center; gap: 0.5rem;">
+              <span>🥗 Perishable Goods &amp; Expiration Tracking</span>
+            </div>
+            <div
+              style="display: flex; align-items: center; gap: 0.625rem; margin-bottom: 1rem; background-color: var(--bg-app); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <input type="checkbox" id="prod-perishable" style="width: 18px; height: 18px; cursor: pointer;">
+              <label for="prod-perishable"
+                style="font-size: 0.875rem; cursor: pointer; font-weight: 500; margin-bottom: 0;">
+                This product is perishable (Food, Dairy, Grocery, Medicine) with an expiration date
+              </label>
+            </div>
+            <div id="perishable-fields-group" style="display: none; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="prod-expiry">Expiration Date (Must be Tomorrow or Later)</label>
+                <input type="date" id="prod-expiry" class="form-control">
+                <div class="form-help">Select tomorrow or later. An expiration date cannot be in the past or today.
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="prod-batch">Batch / Lot Number</label>
+                <input type="text" id="prod-batch" class="form-control" placeholder="e.g. LOT-2026-OCT-A">
+                <div class="form-help">Traceability code for this production lot.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vendor & Supplier Details (For 1-Click WhatsApp Purchase Orders) -->
+          <div style="border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: 1rem;">
+            <div style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.75rem; color: var(--color-primary-900); display: flex; align-items: center; gap: 0.5rem;">
+              <span>🏢 Supplier &amp; WhatsApp Order Details</span>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.875rem;">
+              <label class="form-label" for="prod-vendor-name">Supplier / Vendor Name</label>
+              <input type="text" id="prod-vendor-name" class="form-control" placeholder="e.g. Amul Dairy Depot or Tata Consumer Products" value="Primary Supplier">
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="prod-vendor-phone">Vendor WhatsApp Number</label>
+                <input type="text" id="prod-vendor-phone" class="form-control" placeholder="e.g. +91 98765 43210" value="+919876543210">
+                <div class="form-help">Used for 1-click WhatsApp PO orders.</div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="prod-vendor-email">Vendor Email (Optional)</label>
+                <input type="email" id="prod-vendor-email" class="form-control" placeholder="e.g. orders@supplier.com">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-cancel-modal" class="btn btn-outline">Cancel</button>
+          <button type="submit" id="btn-modal-submit" class="btn btn-primary">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Comprehensive Dataset Intelligence & AI Suggestions Modal -->
+  <div id="dataset-analysis-modal" class="modal-backdrop">
+    <div class="modal" style="max-width: 880px; max-height: 90vh;">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>📊 Dataset Intelligence &amp; AI Replenishment Analysis</span>
+          </div>
+          <div class="modal-subtitle" id="analysis-modal-subtitle">AI-driven diagnosis, stockout prevention, and order recommendations for your uploaded dataset.</div>
+        </div>
+        <button id="analysis-modal-close" class="btn btn-outline btn-sm">&times;</button>
+      </div>
+      <div class="modal-body" style="overflow-y: auto; padding: 1.25rem;">
+        <!-- Executive KPI Cards -->
+        <div id="analysis-kpi-grid" class="metrics-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 1.5rem;"></div>
+
+        <!-- Prioritized AI Strategic Recommendations -->
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-size: 0.9375rem; font-weight: 700; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🤖 Prioritized AI Action Recommendations</span>
+          </h4>
+          <div id="analysis-recommendations-list" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
+        </div>
+
+        <!-- Immediate Reorder Suggestions Table -->
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-size: 0.9375rem; font-weight: 700; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
+            <span>🚨 Immediate Purchase Order Recommendations (MOQ / Pack Compliant)</span>
+            <span id="analysis-reorder-badge" class="badge badge-warning">0 SKUs Need Ordering</span>
+          </h4>
+          <div class="table-container" style="max-height: 240px; overflow-y: auto;">
+            <table class="data-table" style="font-size: 0.8125rem;">
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>Product</th>
+                  <th>Stock on Hand</th>
+                  <th>Daily Demand</th>
+                  <th>Lead Time</th>
+                  <th>Suggested Order</th>
+                  <th>Est. Order Cost</th>
+                  <th>Required Delivery</th>
+                </tr>
+              </thead>
+              <tbody id="analysis-reorders-tbody">
+                <tr><td colspan="8" style="text-align: center; padding: 1rem;">No reorders needed.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Perishable Spoilage & Expiry Prevention Table -->
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-size: 0.9375rem; font-weight: 700; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
+            <span>🥗 Perishable Inventory &amp; Spoilage Prevention</span>
+            <span id="analysis-perishable-badge" class="badge badge-info">0 Perishables</span>
+          </h4>
+          <div class="table-container" style="max-height: 200px; overflow-y: auto;">
+            <table class="data-table" style="font-size: 0.8125rem;">
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>Product</th>
+                  <th>Stock</th>
+                  <th>Expiry Date</th>
+                  <th>Days Left</th>
+                  <th>Status</th>
+                  <th>Recommended Mitigation Action</th>
+                </tr>
+              </thead>
+              <tbody id="analysis-perishables-tbody">
+                <tr><td colspan="7" style="text-align: center; padding: 1rem;">No perishable products in dataset.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer" style="justify-content: space-between;">
+        <span style="font-size: 0.75rem; color: var(--text-muted);">StockSense Automated Dataset Analysis Engine &bull; Case C19 Standard</span>
+        <div style="display: flex; gap: 0.5rem;">
+          <button type="button" id="btn-close-analysis-modal" class="btn btn-outline">Close</button>
+          <a href="replenishment.html" class="btn btn-primary" style="text-decoration: none;">Go to Replenishment Planner &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload Products Modal (JSON / Excel / CSV) -->
+  <div id="upload-products-modal" class="modal-backdrop">
+    <div class="modal" style="max-width: 620px;">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">Upload Product Catalog &amp; Stock</div>
+          <div class="modal-subtitle">Import inventory from an Excel spreadsheet or JSON dataset</div>
+        </div>
+        <button id="upload-modal-close" class="btn btn-outline btn-sm">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          Upload your product catalog using an <strong>Excel workbook (.xlsx, .xls)</strong>, <strong>CSV file
+            (.csv)</strong>, or a <strong>JSON dataset (.json)</strong>. If the data is not suitable, StockSense will
+          notify you with specific guidance.
+        </p>
+
+        <!-- Dropzone -->
+        <div id="product-dropzone" class="dropzone-box">
+          <div class="dropzone-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" x2="12" y1="3" y2="15" />
+            </svg>
+          </div>
+          <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem; color: var(--color-primary-900);">
+            Drag &amp; Drop your file here, or click to browse
+          </div>
+          <div style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 0.875rem;">
+            Accepts .xlsx, .xls, .csv, and .json
+          </div>
+          <input type="file" id="product-file-input" accept=".json,.xlsx,.xls,.csv" style="display: none;">
+          <button type="button" id="btn-browse-file" class="btn btn-outline btn-sm">
+            Browse File
+          </button>
+          <div id="selected-file-info"
+            style="margin-top: 0.75rem; font-weight: 600; color: var(--color-brand-blue); font-size: 0.875rem; display: none;">
+          </div>
+        </div>
+
+        <!-- Recognized fields and sample template download -->
+        <div
+          style="margin-top: 1rem; padding: 1rem; background-color: var(--bg-app); border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="font-size: 0.78125rem; color: var(--text-secondary); line-height: 1.5;">
+            <div style="margin-bottom: 0.375rem;">
+              <strong style="color: var(--color-danger);">Mandatory Columns (Required):</strong>
+              <code>sku</code>, <code>name</code>, <code>available_stock</code>, <code>lead_days</code>, <code>moq</code>, <code>unit_cost_inr</code>
+            </div>
+            <div style="margin-bottom: 0.375rem;">
+              <strong style="color: var(--text-muted);">Optional Columns:</strong>
+              <code>category</code>, <code>selling_price_inr</code>, <code>pack_size</code>, <code>reserved_stock</code>, <code>inbound_stock</code>, <code>is_perishable</code>, <code>expiry_date</code> (YYYY-MM-DD), <code>batch_number</code>, <code>vendor_name</code>, <code>vendor_phone</code>
+            </div>
+            <div style="color: #9f1239; font-size: 0.71875rem; background: #fff1f2; padding: 0.375rem 0.625rem; border-radius: 4px; border: 1px solid #fecdd3;">
+              ⚠️ <strong>Strict Line Validation:</strong> If any mandatory cell is blank or empty, StockSense will report the exact line/row number so you can fix and re-upload.
+            </div>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+            <a href="templates/sample_products_inventory.xlsx" download="sample_products_inventory.xlsx" id="btn-download-sample-excel" class="btn btn-sm"
+              style="font-size: 0.75rem; padding: 0.4rem 0.85rem; white-space: nowrap; background: #15803d; color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 6px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>⬇ Download Sample Excel (.xlsx)</span>
+            </a>
+            <a href="templates/sample_products_inventory.json" download="sample_products_inventory.json" id="btn-download-sample-json" class="btn btn-sm"
+              style="font-size: 0.75rem; padding: 0.4rem 0.85rem; white-space: nowrap; background: #d97706; color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 6px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>⬇ Download Sample JSON (.json)</span>
+            </a>
+            <a href="templates/sample_products_inventory.csv" download="sample_products_inventory.csv" id="btn-download-sample-csv" class="btn btn-outline btn-sm"
+              style="font-size: 0.75rem; padding: 0.4rem 0.85rem; white-space: nowrap; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 6px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>⬇ Download Sample CSV (.csv)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Alert Container: displays unsuitable data error or success summary -->
+        <div id="upload-feedback-container"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-cancel-upload" class="btn btn-outline">Cancel</button>
+        <button type="button" id="btn-submit-upload" class="btn btn-primary" disabled>
+          Import &amp; Analyze Products
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/inventory.js?v=3.2"></script>
+</body>
+
+</html>
