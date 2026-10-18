@@ -1,0 +1,92 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isValidLocationAccess(locationId) {
+      return isAuthenticated() && (
+        resource == null || resource.data.location_id == locationId || resource.data.user_id == request.auth.uid
+      );
+    }
+
+    // User profiles: users can only access their own profile
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+
+    // Locations collection: authorized users only
+    match /locations/{locationId} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && (resource == null || resource.data.owner_uid == request.auth.uid);
+    }
+
+    // Products collection: location or user scoped
+    match /products/{productId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.user_id == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.user_id == request.auth.uid;
+    }
+
+    // Sales history records
+    match /sales_history/{historyId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.user_id == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.user_id == request.auth.uid;
+    }
+
+    // Inventory snapshots
+    match /inventory_snapshots/{snapshotId} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && request.resource.data.user_id == request.auth.uid;
+    }
+
+    // Inbound deliveries
+    match /inbound_deliveries/{deliveryId} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && request.resource.data.user_id == request.auth.uid;
+    }
+
+    // Forecast runs
+    match /forecast_runs/{runId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.user_id == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.user_id == request.auth.uid;
+    }
+
+    // Replenishment proposals
+    match /replenishment_proposals/{proposalId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.user_id == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.user_id == request.auth.uid;
+    }
+
+    // User Insights & AI Intelligence Analysis
+    match /user_insights/{insightId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.user_id == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.user_id == request.auth.uid;
+    }
+
+    // Scenario simulations
+    match /scenarios/{scenarioId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.user_id == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.user_id == request.auth.uid;
+    }
+
+    // Audit log events (append only for authenticated users)
+    match /audit_events/{eventId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.user_id == request.auth.uid;
+      allow update, delete: if false; // Immutable audit log
+    }
+  }
+}

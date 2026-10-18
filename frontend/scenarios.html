@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risk & Scenario Simulator — StockSense</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout">
+    <div id="mobile-overlay" class="mobile-overlay"></div>
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <main class="app-main">
+      <header id="app-header" class="app-header"></header>
+
+      <div class="page-container">
+        
+        <!-- Header -->
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.25rem; font-weight: 700;">Risk & What-If Scenario Simulator</h2>
+          <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-top: 0.25rem;">
+            Stress-test inventory policies against supply-chain shocks without altering original production data.
+          </p>
+        </div>
+
+        <!-- Sales History Notification Banner -->
+        <div id="sim-sales-notice" class="alert attention-card" style="display: none; background: #eff6ff; border: 1px solid #3b82f6; margin-bottom: 1.25rem; padding: 1rem 1.25rem; border-radius: var(--radius-sm);">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+            <div>
+              <div style="color: #1d4ed8; font-size: 0.875rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+                <span>💡</span> Using Catalog Baseline for What-If Simulation
+              </div>
+              <p style="color: #1e40af; font-size: 0.8125rem; margin: 0.25rem 0 0 0; line-height: 1.4;">
+                Simulating against product catalog specifications. To run stress-tests with machine learning weekly cyclical patterns, upload sales history or load sample sales data.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+              <button type="button" id="btn-load-demo-sales-sim" class="btn btn-primary btn-sm" style="font-size: 0.75rem; white-space: nowrap;">⚡ Load Demo Sales Data</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulator Configuration Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+          
+          <!-- Left: Scenario Controls -->
+          <div class="card" style="margin-bottom: 0;">
+            <div class="card-header">
+              <h3 class="card-title">Configure Stress-Test</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label class="form-label" for="sim-sku">Target Product SKU</label>
+                <select id="sim-sku" class="form-select">
+                  <option value="SKU1">SKU1 — Basmati Rice 5kg</option>
+                  <option value="SKU2">SKU2 — Sunflower Oil 1L</option>
+                  <option value="SKU3">SKU3 — Wheat Atta 10kg</option>
+                  <option value="SKU4">SKU4 — Toor Dal 1kg</option>
+                  <option value="SKU5">SKU5 — Table Salt 1kg</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Pre-Configured Stress Scenario</label>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                  <button type="button" class="btn btn-outline scenario-preset-btn active" data-type="lead_time_shock" style="justify-content: flex-start; text-align: left;">
+                    <div>
+                      <div style="font-weight: 600;">Supplier Lead-Time Shock</div>
+                      <div style="font-size: 11px; color: var(--text-muted);">Lead days extended (e.g. 3 &rarr; 7 days)</div>
+                    </div>
+                  </button>
+                  <button type="button" class="btn btn-outline scenario-preset-btn" data-type="zero_stock" style="justify-content: flex-start; text-align: left;">
+                    <div>
+                      <div style="font-weight: 600;">Zero Usable Stock Shock</div>
+                      <div style="font-size: 11px; color: var(--text-muted);">Warehouse shelf inventory drops to 0</div>
+                    </div>
+                  </button>
+                  <button type="button" class="btn btn-outline scenario-preset-btn" data-type="delayed_inbound" style="justify-content: flex-start; text-align: left;">
+                    <div>
+                      <div style="font-weight: 600;">Late Inbound Delivery</div>
+                      <div style="font-size: 11px; color: var(--text-muted);">Inbound truck delayed past need date (ineligible)</div>
+                    </div>
+                  </button>
+                  <button type="button" class="btn btn-outline scenario-preset-btn" data-type="demand_surge" style="justify-content: flex-start; text-align: left;">
+                    <div>
+                      <div style="font-weight: 600;">Demand Surge (+50%)</div>
+                      <div style="font-size: 11px; color: var(--text-muted);">Customer buying spike accelerates depletion</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Custom Adjustments Accordion -->
+              <div style="margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                <div style="font-size: 0.75rem; font-weight: 600; color: var(--color-primary-800); margin-bottom: 0.5rem;">Custom Overrides:</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                  <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="form-label" for="override-lead">Lead Days</label>
+                    <input type="number" id="override-lead" class="form-control" placeholder="Default: 7" min="1">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label class="form-label" for="override-moq">Supplier MOQ</label>
+                    <input type="number" id="override-moq" class="form-control" placeholder="Default: 5" min="1">
+                  </div>
+                </div>
+              </div>
+
+              <button id="btn-run-simulation" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                Run Scenario Simulation &rarr;
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Side-by-Side Diff Display -->
+          <div class="card" style="margin-bottom: 0;">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title" id="sim-result-title">Simulation Output: Original vs. Revised</h3>
+                <div class="card-subtitle" id="sim-result-subtitle">Select a scenario and click Run Simulation.</div>
+              </div>
+              <button id="btn-save-scenario" class="btn btn-teal btn-sm" disabled>
+                Save Scenario
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="diff-grid" id="diff-container">
+                <!-- Original Proposal Card -->
+                <div class="diff-card original">
+                  <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem;">Current Baseline State</div>
+                  <div style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.75rem;" id="orig-sku">SKU1</div>
+                  <div style="display: flex; flex-direction: column; gap: 0.375rem; font-size: 0.8125rem;">
+                    <div>Lead Time: <strong id="orig-lead">3 days</strong></div>
+                    <div>On Hand: <strong id="orig-onhand">10 units</strong></div>
+                    <div>Target Inventory: <strong id="orig-target">30 units</strong></div>
+                    <div>Stock Position: <strong id="orig-pos">10 units</strong></div>
+                    <div>Shortfall: <strong id="orig-shortfall">20 units</strong></div>
+                    <div>Suggested Order: <strong style="font-size: 1.25rem; color: var(--color-brand-blue);" id="orig-order">20 units</strong></div>
+                    <div>Coverage: <span id="orig-coverage">1.0 days</span></div>
+                  </div>
+                </div>
+
+                <!-- Revised Proposal Card -->
+                <div class="diff-card revised">
+                  <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--color-brand-blue); font-weight: 600; margin-bottom: 0.5rem;">Simulated Shock State</div>
+                  <div style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-brand-blue);" id="rev-scenario-name">Supplier Lead-Time Shock</div>
+                  <div style="display: flex; flex-direction: column; gap: 0.375rem; font-size: 0.8125rem;">
+                    <div>Lead Time: <strong id="rev-lead">7 days</strong></div>
+                    <div>On Hand: <strong id="rev-onhand">10 units</strong></div>
+                    <div>Target Inventory: <strong id="rev-target">70 units</strong></div>
+                    <div>Stock Position: <strong id="rev-pos">10 units</strong></div>
+                    <div>Shortfall: <strong id="rev-shortfall">60 units</strong></div>
+                    <div>Suggested Order: <strong style="font-size: 1.25rem; color: var(--color-danger);" id="rev-order">60 units</strong></div>
+                    <div>Order Delta: <strong id="rev-delta" style="color: var(--color-danger);">+40 units</strong></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Explanation Box -->
+              <div style="margin-top: 1.25rem; background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                <div style="font-size: 0.8125rem; font-weight: 600; color: var(--color-primary-900); margin-bottom: 0.25rem;">Why Did the Proposal Change?</div>
+                <div style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5;" id="sim-explanation">
+                  Click 'Run Scenario Simulation' to see mathematical reconciliation and risk analysis.
+                </div>
+              </div>
+
+              <!-- New Risks Banner -->
+              <div id="sim-risks-box" class="attention-card warning" style="display: none; margin-top: 1rem; margin-bottom: 0;">
+                <div class="attention-content" id="sim-risks-content"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Saved Scenarios History -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Saved Scenario Experiments</h3>
+            <span class="badge badge-neutral" id="saved-scenarios-count">0 Saved</span>
+          </div>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Saved Date</th>
+                  <th>Scenario Name</th>
+                  <th>SKU</th>
+                  <th>Original Order</th>
+                  <th>Revised Order</th>
+                  <th>Delta Units</th>
+                  <th>Key Risk Observed</th>
+                </tr>
+              </thead>
+              <tbody id="saved-scenarios-tbody">
+                <tr><td colspan="7" style="text-align: center; padding: 2rem;">No scenarios saved yet. Run a simulation above to save your first experiment.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/scenarios.js?v=2.1"></script>
+</body>
+</html>

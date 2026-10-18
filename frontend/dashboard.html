@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — StockSense Inventory Planning</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app-layout">
+    <div id="mobile-overlay" class="mobile-overlay"></div>
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <main class="app-main">
+      <header id="app-header" class="app-header"></header>
+
+      <div class="page-container">
+        
+        <!-- Attention Alerts Section -->
+        <div id="attention-section" style="margin-bottom: 1.5rem;">
+          <div class="attention-card warning">
+            <div class="attention-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+            </div>
+            <div class="attention-content" style="flex: 1;">
+              <h4>What Needs Your Attention Today</h4>
+              <p id="attention-text">Analyzing inventory coverage against upcoming lead-time demand...</p>
+            </div>
+            <a href="replenishment.html" class="btn btn-sm btn-outline" style="border-color: #fde68a; color: #92400e;">Review Replenishment Proposals &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Metrics Summary Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">
+                Total Products
+                <span class="tooltip-wrap">
+                  <span class="tooltip-icon">&#9432;</span>
+                  <span class="tooltip-bubble">Active SKUs tracked in inventory catalogue.</span>
+                </span>
+              </span>
+              <div class="metric-icon-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="val-sku-count">--</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">
+                Total Usable Stock
+                <span class="tooltip-wrap">
+                  <span class="tooltip-icon">&#9432;</span>
+                  <span class="tooltip-bubble">Physical on-hand inventory less any reserved or held customer units.</span>
+                </span>
+              </span>
+              <div class="metric-icon-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="val-total-stock">--</div>
+            <div class="metric-subtext">Physical units on hand</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">
+                Reorder Required
+                <span class="tooltip-wrap">
+                  <span class="tooltip-icon">&#9432;</span>
+                  <span class="tooltip-bubble">Products whose stock position is below target inventory needed for supplier lead time.</span>
+                </span>
+              </span>
+              <div class="metric-icon-wrap" style="color: var(--color-danger);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="val-reorder-count" style="color: var(--color-danger-text);">--</div>
+            <div class="metric-subtext" id="val-reorder-sub">Evaluating shortfall...</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">
+                Avg Stock Coverage
+                <span class="tooltip-wrap">
+                  <span class="tooltip-icon">&#9432;</span>
+                  <span class="tooltip-bubble">Usable Stock divided by Daily Forecast. Minimum safe threshold is the 3-day lead time.</span>
+                </span>
+              </span>
+              <div class="metric-icon-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="val-avg-coverage">--</div>
+            <div class="metric-subtext">Supplier lead time: 3.0 days</div>
+          </div>
+        </div>
+
+        <!-- Main Charts Section -->
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+          <!-- Chart 1: 7-Day Demand Forecast -->
+          <div class="card" style="margin-bottom: 0;">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">7-Day Demand Forecast vs. Recent Actuals</h3>
+                <div class="card-subtitle">Predicted daily demand using the Naive Same-Weekday Baseline with 80% uncertainty interval.</div>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <select id="select-chart-sku" class="form-select" style="width: auto; padding: 4px 8px; font-size: 12px;">
+                  <option value="SKU1">SKU1 (Basmati Rice)</option>
+                  <option value="SKU2">SKU2 (Sunflower Oil)</option>
+                  <option value="SKU3">SKU3 (Wheat Atta)</option>
+                  <option value="SKU4">SKU4 (Toor Dal)</option>
+                  <option value="SKU5">SKU5 (Table Salt)</option>
+                </select>
+              </div>
+            </div>
+            <div class="card-body">
+              <div style="height: 280px; position: relative;">
+                <canvas id="forecastChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chart 2: Stock Position vs Target Demand -->
+          <div class="card" style="margin-bottom: 0;">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Stock Position vs. Lead-Time Target</h3>
+                <div class="card-subtitle">Comparing current stock position against demand needed during supplier delivery window.</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div style="height: 280px; position: relative;">
+                <canvas id="stockTargetChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coverage & Action Table -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Product Coverage & Immediate Replenishment Status</h3>
+              <div class="card-subtitle">Real-time status based on C19 inventory formula and forward demand.</div>
+            </div>
+            <a href="replenishment.html" class="btn btn-sm btn-primary">Open Replenishment Planner &rarr;</a>
+          </div>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>Product Name</th>
+                  <th>On Hand</th>
+                  <th>Stock Position</th>
+                  <th>Daily Forecast</th>
+                  <th>Days of Coverage</th>
+                  <th>Lead Time</th>
+                  <th>Risk Level</th>
+                  <th>Suggested Order</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="dashboard-proposals-tbody">
+                <tr><td colspan="10" style="text-align: center; padding: 2rem;">Loading inventory data...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/dashboard.js?v=3.0"></script>
+</body>
+</html>

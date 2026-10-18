@@ -1,0 +1,6 @@
+sku,name,category,available_stock,lead_days,moq,pack_size,unit_cost_inr,selling_price_inr
+SKU1,Basmati Rice 5kg,Grains,45,3,5,1,350,450
+SKU2,Sunflower Oil 1L,Oils,28,4,6,6,120,160
+SKU3,Whole Wheat Atta 10kg,Flour,60,2,10,1,380,440
+SKU4,Toor Dal 1kg,Pulses,15,5,5,5,140,180
+SKU5,Iodized Table Salt 1kg,Spices,80,3,10,10,25,30

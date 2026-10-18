@@ -1,0 +1,1965 @@
+{
+  "case_id": "C19",
+  "synthetic": true,
+  "data_version": "v3.2",
+  "currency": "INR unless explicitly stated",
+  "missing_values": "null means unknown, never zero",
+  "records": {
+    "history": [
+      {
+        "date": "2026-08-01",
+        "sku": "SKU1",
+        "sales_units": 1,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-02",
+        "sku": "SKU1",
+        "sales_units": 2,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-03",
+        "sku": "SKU1",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-04",
+        "sku": "SKU1",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-05",
+        "sku": "SKU1",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-06",
+        "sku": "SKU1",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-07",
+        "sku": "SKU1",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-08",
+        "sku": "SKU1",
+        "sales_units": 1,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-09",
+        "sku": "SKU1",
+        "sales_units": 2,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-10",
+        "sku": "SKU1",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-11",
+        "sku": "SKU1",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-12",
+        "sku": "SKU1",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-13",
+        "sku": "SKU1",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-14",
+        "sku": "SKU1",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-15",
+        "sku": "SKU1",
+        "sales_units": 1,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-16",
+        "sku": "SKU1",
+        "sales_units": 2,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-17",
+        "sku": "SKU1",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-18",
+        "sku": "SKU1",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-19",
+        "sku": "SKU1",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-20",
+        "sku": "SKU1",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-21",
+        "sku": "SKU1",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-22",
+        "sku": "SKU1",
+        "sales_units": 1,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-23",
+        "sku": "SKU1",
+        "sales_units": 2,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-24",
+        "sku": "SKU1",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-25",
+        "sku": "SKU1",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-26",
+        "sku": "SKU1",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-27",
+        "sku": "SKU1",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-28",
+        "sku": "SKU1",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-29",
+        "sku": "SKU1",
+        "sales_units": 1,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-30",
+        "sku": "SKU1",
+        "sales_units": 2,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-31",
+        "sku": "SKU1",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-01",
+        "sku": "SKU1",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-02",
+        "sku": "SKU1",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-03",
+        "sku": "SKU1",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-04",
+        "sku": "SKU1",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-05",
+        "sku": "SKU1",
+        "sales_units": 1,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-06",
+        "sku": "SKU1",
+        "sales_units": 2,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-07",
+        "sku": "SKU1",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-08",
+        "sku": "SKU1",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-09",
+        "sku": "SKU1",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-10",
+        "sku": "SKU1",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-11",
+        "sku": "SKU1",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-01",
+        "sku": "SKU2",
+        "sales_units": 2,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-02",
+        "sku": "SKU2",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-03",
+        "sku": "SKU2",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-04",
+        "sku": "SKU2",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-05",
+        "sku": "SKU2",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-06",
+        "sku": "SKU2",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-07",
+        "sku": "SKU2",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-08",
+        "sku": "SKU2",
+        "sales_units": 2,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-09",
+        "sku": "SKU2",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-10",
+        "sku": "SKU2",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-11",
+        "sku": "SKU2",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-12",
+        "sku": "SKU2",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-13",
+        "sku": "SKU2",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-14",
+        "sku": "SKU2",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-15",
+        "sku": "SKU2",
+        "sales_units": 2,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-16",
+        "sku": "SKU2",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-17",
+        "sku": "SKU2",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-18",
+        "sku": "SKU2",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-19",
+        "sku": "SKU2",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-20",
+        "sku": "SKU2",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-21",
+        "sku": "SKU2",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-22",
+        "sku": "SKU2",
+        "sales_units": 2,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-23",
+        "sku": "SKU2",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-24",
+        "sku": "SKU2",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-25",
+        "sku": "SKU2",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-26",
+        "sku": "SKU2",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-27",
+        "sku": "SKU2",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-28",
+        "sku": "SKU2",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-29",
+        "sku": "SKU2",
+        "sales_units": 2,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-30",
+        "sku": "SKU2",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-31",
+        "sku": "SKU2",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-01",
+        "sku": "SKU2",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-02",
+        "sku": "SKU2",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-03",
+        "sku": "SKU2",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-04",
+        "sku": "SKU2",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-05",
+        "sku": "SKU2",
+        "sales_units": 2,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-06",
+        "sku": "SKU2",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-07",
+        "sku": "SKU2",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-08",
+        "sku": "SKU2",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-09",
+        "sku": "SKU2",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-10",
+        "sku": "SKU2",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-11",
+        "sku": "SKU2",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-01",
+        "sku": "SKU3",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-02",
+        "sku": "SKU3",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-03",
+        "sku": "SKU3",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-04",
+        "sku": "SKU3",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-05",
+        "sku": "SKU3",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-06",
+        "sku": "SKU3",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-07",
+        "sku": "SKU3",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-08",
+        "sku": "SKU3",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-09",
+        "sku": "SKU3",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-10",
+        "sku": "SKU3",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-11",
+        "sku": "SKU3",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-12",
+        "sku": "SKU3",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-13",
+        "sku": "SKU3",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-14",
+        "sku": "SKU3",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-15",
+        "sku": "SKU3",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-16",
+        "sku": "SKU3",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-17",
+        "sku": "SKU3",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-18",
+        "sku": "SKU3",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-19",
+        "sku": "SKU3",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-20",
+        "sku": "SKU3",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-21",
+        "sku": "SKU3",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-22",
+        "sku": "SKU3",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-23",
+        "sku": "SKU3",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-24",
+        "sku": "SKU3",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-25",
+        "sku": "SKU3",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-26",
+        "sku": "SKU3",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-27",
+        "sku": "SKU3",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-28",
+        "sku": "SKU3",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-29",
+        "sku": "SKU3",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-30",
+        "sku": "SKU3",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-31",
+        "sku": "SKU3",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-01",
+        "sku": "SKU3",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-02",
+        "sku": "SKU3",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-03",
+        "sku": "SKU3",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-04",
+        "sku": "SKU3",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-05",
+        "sku": "SKU3",
+        "sales_units": 3,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-06",
+        "sku": "SKU3",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-07",
+        "sku": "SKU3",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-08",
+        "sku": "SKU3",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-09",
+        "sku": "SKU3",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-10",
+        "sku": "SKU3",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-11",
+        "sku": "SKU3",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-01",
+        "sku": "SKU4",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-02",
+        "sku": "SKU4",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-03",
+        "sku": "SKU4",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-04",
+        "sku": "SKU4",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-05",
+        "sku": "SKU4",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-06",
+        "sku": "SKU4",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-07",
+        "sku": "SKU4",
+        "sales_units": 10,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-08",
+        "sku": "SKU4",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-09",
+        "sku": "SKU4",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-10",
+        "sku": "SKU4",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-11",
+        "sku": "SKU4",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-12",
+        "sku": "SKU4",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-13",
+        "sku": "SKU4",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-14",
+        "sku": "SKU4",
+        "sales_units": 10,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-15",
+        "sku": "SKU4",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-16",
+        "sku": "SKU4",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-17",
+        "sku": "SKU4",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-18",
+        "sku": "SKU4",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-19",
+        "sku": "SKU4",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-20",
+        "sku": "SKU4",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-21",
+        "sku": "SKU4",
+        "sales_units": 10,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-22",
+        "sku": "SKU4",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-23",
+        "sku": "SKU4",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-24",
+        "sku": "SKU4",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-25",
+        "sku": "SKU4",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-26",
+        "sku": "SKU4",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-27",
+        "sku": "SKU4",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-28",
+        "sku": "SKU4",
+        "sales_units": 10,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-29",
+        "sku": "SKU4",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-30",
+        "sku": "SKU4",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-31",
+        "sku": "SKU4",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-01",
+        "sku": "SKU4",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-02",
+        "sku": "SKU4",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-03",
+        "sku": "SKU4",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-04",
+        "sku": "SKU4",
+        "sales_units": 10,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-05",
+        "sku": "SKU4",
+        "sales_units": 4,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-06",
+        "sku": "SKU4",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-07",
+        "sku": "SKU4",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-08",
+        "sku": "SKU4",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-09",
+        "sku": "SKU4",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-10",
+        "sku": "SKU4",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-11",
+        "sku": "SKU4",
+        "sales_units": 10,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-01",
+        "sku": "SKU5",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-02",
+        "sku": "SKU5",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-03",
+        "sku": "SKU5",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-04",
+        "sku": "SKU5",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-05",
+        "sku": "SKU5",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-06",
+        "sku": "SKU5",
+        "sales_units": 10,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-07",
+        "sku": "SKU5",
+        "sales_units": 11,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-08",
+        "sku": "SKU5",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-09",
+        "sku": "SKU5",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-10",
+        "sku": "SKU5",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-11",
+        "sku": "SKU5",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-12",
+        "sku": "SKU5",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-13",
+        "sku": "SKU5",
+        "sales_units": 10,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-14",
+        "sku": "SKU5",
+        "sales_units": 11,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-15",
+        "sku": "SKU5",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-16",
+        "sku": "SKU5",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-17",
+        "sku": "SKU5",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-18",
+        "sku": "SKU5",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-19",
+        "sku": "SKU5",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-20",
+        "sku": "SKU5",
+        "sales_units": 10,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-21",
+        "sku": "SKU5",
+        "sales_units": 11,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-22",
+        "sku": "SKU5",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-23",
+        "sku": "SKU5",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-24",
+        "sku": "SKU5",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-25",
+        "sku": "SKU5",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-26",
+        "sku": "SKU5",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-27",
+        "sku": "SKU5",
+        "sales_units": 10,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-28",
+        "sku": "SKU5",
+        "sales_units": 11,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-29",
+        "sku": "SKU5",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-30",
+        "sku": "SKU5",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-08-31",
+        "sku": "SKU5",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-01",
+        "sku": "SKU5",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-02",
+        "sku": "SKU5",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-03",
+        "sku": "SKU5",
+        "sales_units": 10,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-04",
+        "sku": "SKU5",
+        "sales_units": 11,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-05",
+        "sku": "SKU5",
+        "sales_units": 5,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-06",
+        "sku": "SKU5",
+        "sales_units": 6,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-07",
+        "sku": "SKU5",
+        "sales_units": 7,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-08",
+        "sku": "SKU5",
+        "sales_units": 8,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-09",
+        "sku": "SKU5",
+        "sales_units": 9,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-10",
+        "sku": "SKU5",
+        "sales_units": 10,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      },
+      {
+        "date": "2026-09-11",
+        "sku": "SKU5",
+        "sales_units": 11,
+        "stockout": false,
+        "available_stock": 50,
+        "lead_days": 3,
+        "moq": 5
+      }
+    ],
+    "train_end": "2026-09-04",
+    "test_start": "2026-09-05",
+    "baseline": "Use the previous same weekday; score absolute error on the last seven dates only.",
+    "inventory_as_of": "2026-09-12",
+    "sku_count": 5,
+    "replenishment_rule": "Target = daily_forecast * lead_days; position = on_hand + inbound_due_before_need - reserved; raw=max(0,target-position); round positive raw up to MOQ multiple.",
+    "inventory_reference": [
+      {
+        "sku": "SKU1",
+        "daily_forecast": 10,
+        "lead_days": 3,
+        "on_hand": 10,
+        "inbound_due_before_need": 0,
+        "reserved": 0,
+        "moq": 5,
+        "expected_order_units": 20
+      },
+      {
+        "sku": "SKU2",
+        "daily_forecast": 10,
+        "lead_days": 3,
+        "on_hand": 20,
+        "inbound_due_before_need": 0,
+        "reserved": 0,
+        "moq": 5,
+        "expected_order_units": 10
+      },
+      {
+        "sku": "SKU3",
+        "daily_forecast": 10,
+        "lead_days": 3,
+        "on_hand": 30,
+        "inbound_due_before_need": 0,
+        "reserved": 0,
+        "moq": 5,
+        "expected_order_units": 0
+      },
+      {
+        "sku": "SKU4",
+        "daily_forecast": 10,
+        "lead_days": 3,
+        "on_hand": 40,
+        "inbound_due_before_need": 0,
+        "reserved": 0,
+        "moq": 5,
+        "expected_order_units": 0
+      },
+      {
+        "sku": "SKU5",
+        "daily_forecast": 10,
+        "lead_days": 3,
+        "on_hand": 50,
+        "inbound_due_before_need": 0,
+        "reserved": 0,
+        "moq": 5,
+        "expected_order_units": 0
+      }
+    ]
+  },
+  "public_checks": [
+    "Report per-SKU and aggregate MAE on a later held-out period versus the declared naive baseline; no future data in training.",
+    "Replenishment follows the declared stock-position formula, nonnegative quantities, MOQ/pack and inbound timing in five examples.",
+    "Zero sales, missing dates and a lead-time shock produce visible uncertainty and a revised proposal."
+  ],
+  "limit": "Small teaching fixture for a bounded prototype. Market demand, willingness to pay and production performance remain unproven."
+}

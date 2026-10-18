@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account &amp; Organization Settings — StockSense</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout">
+    <div id="mobile-overlay" class="mobile-overlay"></div>
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <main class="app-main">
+      <header id="app-header" class="app-header"></header>
+
+      <div class="page-container">
+        
+        <!-- Header -->
+        <div style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--color-primary-900);">Workspace &amp; Profile Settings</h2>
+            <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Manage your organization profile, buyer details, and automated purchase order messaging.
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button id="btn-save-settings" class="btn btn-primary" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+              <span>Save Changes</span>
+            </button>
+          </div>
+        </div>
+
+        <form id="settings-form">
+          <!-- Main Settings Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+            
+            <!-- Card 1: Organization & Business Profile -->
+            <div class="card" style="margin-bottom: 0;">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>🏢 Organization &amp; Business Profile</span>
+                  </h3>
+                  <div class="card-subtitle">Official company details shown on vendor order dispatches.</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                  <label class="form-label" for="setting-org-name">Organization / Company Name</label>
+                  <input type="text" id="setting-org-name" class="form-control" placeholder="e.g. Apex Supermarkets Ltd or QuickBite Retail" required>
+                  <div class="form-help">This company name will appear automatically in the <strong>*From:*</strong> line of all WhatsApp purchase orders.</div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                  <label class="form-label" for="setting-warehouse">Primary Warehouse / Store Location</label>
+                  <input type="text" id="setting-warehouse" class="form-control" placeholder="e.g. Central Warehouse, Mumbai (Hub #101)">
+                  <div class="form-help">Delivery destination sent in replenishment dispatches.</div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                  <label class="form-label" for="setting-biz-phone">Business Contact / WhatsApp Dispatch Phone</label>
+                  <input type="text" id="setting-biz-phone" class="form-control" placeholder="e.g. +91 98765 43210">
+                  <div class="form-help">Your business WhatsApp or mobile number for supplier replies.</div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label class="form-label" for="setting-biz-email">Official Procurement Email</label>
+                  <input type="email" id="setting-biz-email" class="form-control" placeholder="e.g. procurement@acmestores.in">
+                  <div class="form-help">Where order confirmations and invoices are routed.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: User Account & Buyer Profile -->
+            <div class="card" style="margin-bottom: 0;">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>👤 Buyer &amp; Account Details</span>
+                  </h3>
+                  <div class="card-subtitle">Personal credentials and planner contact profile.</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                  <label class="form-label" for="setting-user-name">Full Name / Planner Contact</label>
+                  <input type="text" id="setting-user-name" class="form-control" placeholder="e.g. Rohan Verma" required>
+                  <div class="form-help">Signatory on purchase requests and system audit trails.</div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                  <label class="form-label" for="setting-user-email">Account Login Email</label>
+                  <input type="email" id="setting-user-email" class="form-control" placeholder="e.g. planner@stocksense.in" required>
+                  <div class="form-help">Your primary StockSense workspace sign-in address.</div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                  <label class="form-label" for="setting-user-role">Job Title / Organizational Role</label>
+                  <input type="text" id="setting-user-role" class="form-control" placeholder="e.g. Inventory Planner / Store Owner">
+                  <div class="form-help">Role tracked for inventory change approvals.</div>
+                </div>
+
+                <!-- Quick Status Pill -->
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem 1rem; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 0.75rem; font-weight: 600; color: var(--color-primary-900);">Account Status</div>
+                    <div style="font-size: 0.6875rem; color: var(--text-muted);" id="user-status-text">Verified Workspace Planner</div>
+                  </div>
+                  <span class="badge badge-success" id="badge-account-status">Active</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Card 3: Live WhatsApp Restock Dispatch Preview -->
+          <div class="card" style="margin-bottom: 1.5rem;">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title" style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span>📲 Live WhatsApp Purchase Order Preview</span>
+                </h3>
+                <div class="card-subtitle">Real-time preview of how your company name appears when restocking suppliers.</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <pre id="settings-whatsapp-preview" style="background: #eefbf3; border: 1px solid #bbf7d0; color: #14532d; font-family: var(--font-mono, monospace); font-size: 12px; line-height: 1.5; padding: 1rem 1.25rem; border-radius: var(--radius-sm); white-space: pre-wrap; margin: 0;"></pre>
+            </div>
+          </div>
+        </form>
+
+        <!-- System Audit Log Table -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Recent Activity &amp; Audit Log</h3>
+              <div class="card-subtitle">Timestamped activity log of settings adjustments, inventory updates, and order dispatches.</div>
+            </div>
+            <button id="btn-refresh-audit" class="btn btn-outline btn-sm">Refresh Logs</button>
+          </div>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Timestamp (Local)</th>
+                  <th>Action Type</th>
+                  <th>Updated By</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody id="audit-tbody">
+                <tr><td colspan="4" style="text-align: center; padding: 2rem;">Loading audit trail...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/settings.js?v=3.0"></script>
+</body>
+</html>

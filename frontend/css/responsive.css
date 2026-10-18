@@ -1,0 +1,123 @@
+/* StockSense Responsive Stylesheet */
+
+/* Mobile Navigation Toggle */
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-primary-800);
+  padding: 0.5rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.5);
+  z-index: 35;
+}
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 220px;
+  }
+  
+  .page-container {
+    padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+  }
+  
+  .app-header {
+    padding: 0 1.5rem;
+  }
+  
+  .diff-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .app-sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+  }
+
+  .app-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .mobile-overlay.open {
+    display: block;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+  }
+
+  .app-main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .app-header {
+    padding: 0 1rem;
+  }
+
+  .page-container {
+    padding: 1rem 1rem 2rem 1rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .wizard-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .app-sidebar, .app-header, .btn, .mobile-nav-toggle, .toast-container {
+    display: none !important;
+  }
+
+  .app-main {
+    margin-left: 0 !important;
+  }
+
+  .page-container {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    page-break-inside: avoid;
+  }
+}

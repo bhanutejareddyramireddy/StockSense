@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Replenishment Planner — StockSense</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-layout">
+    <div id="mobile-overlay" class="mobile-overlay"></div>
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <main class="app-main">
+      <header id="app-header" class="app-header"></header>
+
+      <div class="page-container">
+        
+        <!-- Header -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="font-size: 1.25rem; font-weight: 700;">Replenishment Order Planner</h2>
+            <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Deterministic replenishment proposals enforcing target inventory, stock position, supplier MOQ, carton pack sizes, and lead times.
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button id="btn-review-order" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              <span>Review Proposed Order</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Demand Surge & Festival Multiplier Selector -->
+        <div class="card" style="margin-bottom: 1.25rem; border-left: 4px solid var(--color-brand-blue);">
+          <div class="card-body" style="padding: 0.875rem 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.875rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 1.125rem;">🎪</span>
+              <div>
+                <div style="font-size: 0.875rem; font-weight: 700; color: var(--color-primary-900);">Upcoming Demand Surge / Festival Multiplier</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Dynamically scale safety targets and purchase order quantities for upcoming festivals or salary-crediting rushes.</div>
+              </div>
+            </div>
+            <div class="multiplier-btn-group" style="display: flex; gap: 0.375rem; flex-wrap: wrap;">
+              <button type="button" class="btn btn-sm btn-multiplier btn-primary active" data-multiplier="1.0">Normal (1.0x)</button>
+              <button type="button" class="btn btn-sm btn-multiplier btn-outline" data-multiplier="1.25">💰 Salary Week (+25%)</button>
+              <button type="button" class="btn btn-sm btn-multiplier btn-outline" data-multiplier="1.50">🎉 Festival Rush (+50%)</button>
+              <button type="button" class="btn btn-sm btn-multiplier btn-outline" data-multiplier="2.00">🚀 Super Spike (+100%)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sales History Required Banner -->
+        <div id="sales-required-banner" class="alert attention-card" style="display: none; background: #eff6ff; border: 1px solid #3b82f6; margin-bottom: 1.5rem; padding: 1.25rem; border-radius: var(--radius-sm);">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+            <div>
+              <h4 style="color: #1d4ed8; font-size: 1rem; margin-bottom: 0.25rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+                <span>📦</span> Sales History Required for Purchase Order Calculations
+              </h4>
+              <p style="color: #1e40af; font-size: 0.8125rem; margin: 0; line-height: 1.4;">
+                Products are loaded in your inventory catalog. StockSense requires historical daily sales data (Date, SKU, Sales Units) to compute average daily velocity, target stock, and supplier replenishment orders.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+              <a href="sales.html" class="btn btn-primary btn-sm" style="text-decoration: none;">Upload Sales History &rarr;</a>
+              <button type="button" id="btn-load-demo-sales-replenishment" class="btn btn-outline btn-sm" style="background: #fff; font-weight: 600;">⚡ Load Demo Sales Data</button>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Metric Summary Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Suggested Order Units</span>
+              <span class="badge badge-info">Total</span>
+            </div>
+            <div class="metric-value" id="val-rep-units">-- units</div>
+            <div class="metric-subtext" id="val-rep-skus">-- SKUs need ordering</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Estimated Reorder Cost</span>
+              <span class="tooltip-wrap"><span class="tooltip-icon">&#9432;</span><span class="tooltip-bubble">Calculated using supplier wholesale unit cost.</span></span>
+            </div>
+            <div class="metric-value" id="val-rep-cost">--</div>
+            <div class="metric-subtext">Working capital requirement</div>
+          </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="card" style="margin-bottom: 1rem;">
+          <div class="card-body" style="padding: 0.875rem 1.25rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <div style="font-size: 0.8125rem; font-weight: 600; color: var(--color-primary-800);">Filter Proposals:</div>
+            <button class="btn btn-sm btn-primary filter-btn active" data-filter="ALL" id="filter-btn-all">All Products</button>
+            <button class="btn btn-sm btn-outline filter-btn" data-filter="REORDER">Order Required</button>
+            <button class="btn btn-sm btn-outline filter-btn" data-filter="CRITICAL">High Stockout Risk</button>
+            <button class="btn btn-sm btn-outline filter-btn" data-filter="HEALTHY">No Order Needed</button>
+          </div>
+        </div>
+
+        <!-- Proposals Table -->
+        <div class="card">
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>Product</th>
+                  <th>Daily Demand</th>
+                  <th>Lead Days</th>
+                  <th>Target Stock</th>
+                  <th>Stock Position</th>
+                  <th>Shortfall</th>
+                  <th>MOQ / Pack</th>
+                  <th>Suggested Order</th>
+                  <th>Expected Arrival</th>
+                  <th>Coverage</th>
+                  <th>Risk Level</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="proposals-tbody">
+                <tr><td colspan="13" style="text-align: center; padding: 2rem;">Computing replenishment proposals...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Order Review Modal -->
+  <div id="order-review-modal" class="modal-backdrop">
+    <div class="modal" style="max-width: 680px;">
+      <div class="modal-header">
+        <div class="modal-title">Review Proposed Purchase Order</div>
+        <button id="modal-review-close" class="btn btn-outline btn-sm">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          Please review the proposed order quantities before saving this replenishment proposal. All quantities have been adjusted to satisfy supplier MOQs and master carton pack sizes.
+        </p>
+
+        <div class="table-container" style="margin-bottom: 1rem;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>SKU</th>
+                <th>Product Name</th>
+                <th>Suggested Order</th>
+                <th>Unit Cost</th>
+                <th>Total Cost</th>
+                <th>Supplier ETA</th>
+              </tr>
+            </thead>
+            <tbody id="modal-review-tbody"></tbody>
+          </table>
+        </div>
+
+        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Total Capital Required</div>
+            <div style="font-size: 1.25rem; font-weight: 700; color: var(--color-primary-900);" id="modal-total-cost">--</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Total Units to Receive</div>
+            <div style="font-size: 1.25rem; font-weight: 700; color: var(--color-brand-blue);" id="modal-total-units">-- units</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-cancel-review" class="btn btn-outline">Close</button>
+        <button id="btn-confirm-save-run" class="btn btn-primary">Confirm & Save Replenishment Run</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vendor Configuration & WhatsApp Order Modal -->
+  <div id="vendor-modal" class="modal-backdrop">
+    <div class="modal" style="max-width: 580px;">
+      <div class="modal-header">
+        <div class="modal-title" id="vendor-modal-title">Configure Vendor &amp; WhatsApp Order</div>
+        <button id="modal-vendor-close" class="btn btn-outline btn-sm">&times;</button>
+      </div>
+      <form id="vendor-form">
+        <div class="modal-body">
+          <input type="hidden" id="vendor-sku">
+          <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem 1rem; margin-bottom: 1.25rem;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Selected Product</div>
+            <div style="font-weight: 700; font-size: 0.9375rem; color: var(--color-primary-900);" id="vendor-prod-name">--</div>
+            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 2px;" id="vendor-order-summary">Suggested Order: -- units</div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="vendor-name-input">Supplier / Vendor Name</label>
+            <input type="text" id="vendor-name-input" class="form-control" placeholder="e.g. Amul Dairy Depot or Bharat Agro Mills" required>
+            <div class="form-help">Commercial distributor or supplier name.</div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="vendor-phone-input">Vendor WhatsApp Phone Number</label>
+            <input type="text" id="vendor-phone-input" class="form-control" placeholder="e.g. +91 98765 43210 or 9876543210" required>
+            <div class="form-help">Enter with country code or standard 10-digit Indian mobile number.</div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label class="form-label" for="vendor-email-input">Vendor Email (Optional)</label>
+            <input type="email" id="vendor-email-input" class="form-control" placeholder="e.g. orders@supplier.com">
+          </div>
+
+          <!-- Live WhatsApp Message Preview -->
+          <div style="border-top: 1px solid var(--border-color); padding-top: 1rem;">
+            <div style="font-size: 0.75rem; font-weight: 600; color: var(--color-primary-800); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.375rem;">
+              <span>📲 Pre-filled WhatsApp Message Preview</span>
+            </div>
+            <pre id="vendor-whatsapp-preview" style="background: #eefbf3; border: 1px solid #bbf7d0; color: #14532d; font-family: var(--font-mono, monospace); font-size: 11px; line-height: 1.45; padding: 0.75rem 1rem; border-radius: var(--radius-sm); white-space: pre-wrap; margin: 0;"></pre>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-cancel-vendor" class="btn btn-outline">Cancel</button>
+          <button type="submit" id="btn-save-vendor" class="btn btn-secondary">Save Vendor</button>
+          <button type="button" id="btn-save-and-whatsapp" class="btn btn-whatsapp">
+            <span>📲 Save &amp; Order via WhatsApp</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/replenishment.js?v=3.1"></script>
+</body>
+</html>

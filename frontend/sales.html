@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales History & Data Import — StockSense</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app-layout">
+    <div id="mobile-overlay" class="mobile-overlay"></div>
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <main class="app-main">
+      <header id="app-header" class="app-header"></header>
+
+      <div class="page-container">
+        
+        <!-- Header -->
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.25rem; font-weight: 700;">Sales History & Data Validation</h2>
+          <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-top: 0.25rem;">
+            Inspect daily transaction history, detect data gaps, and import CSV or JSON files with automated validation.
+          </p>
+        </div>
+
+        <!-- Import Card -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="flex-wrap: wrap; gap: 0.75rem;">
+            <div>
+              <h3 class="card-title">Upload Sales History Dataset</h3>
+              <div class="card-subtitle">Upload CSV or JSON files. Automated validator verifies date format, checks required fields, and identifies the exact line number of any empty cell.</div>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button id="btn-download-sales-csv" class="btn btn-primary btn-sm" style="background: #2563eb; color: #fff;">
+                ⬇ Download Sample Sales CSV
+              </button>
+              <button id="btn-download-sales-json" class="btn btn-outline btn-sm">
+                ⬇ Download Sample Sales JSON
+              </button>
+              <button id="btn-load-demo-sales" class="btn btn-outline btn-sm" style="font-weight: 600; border-color: #2563eb; color: #2563eb;">
+                ⚡ Load Demo Sales Data
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <!-- Format Specification -->
+            <div style="margin-bottom: 1rem; padding: 0.75rem 1rem; background-color: var(--bg-app); border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-size: 0.8125rem;">
+              <div style="margin-bottom: 0.35rem;">
+                <strong style="color: var(--color-danger);">Mandatory Columns (Required):</strong>
+                <code>date</code> (YYYY-MM-DD), <code>sku</code> (Product SKU code), <code>sales_units</code> (Daily units sold, integer &ge; 0)
+              </div>
+              <div style="margin-bottom: 0.35rem;">
+                <strong style="color: var(--text-muted);">Optional Column:</strong>
+                <code>stockout</code> (true/false — flags whether item was out of stock)
+              </div>
+              <div style="color: #9f1239; font-size: 0.75rem; background: #fff1f2; padding: 0.35rem 0.5rem; border-radius: 4px; border: 1px solid #fecdd3; margin-top: 0.35rem;">
+                ⚠️ <strong>Strict Line-by-Line Checking:</strong> If any row has an empty cell in mandatory columns, StockSense reports the exact line number for quick correction.
+              </div>
+            </div>
+
+            <div id="drop-zone" style="border: 2px dashed var(--border-color); border-radius: var(--radius-md); padding: 2rem; text-align: center; background: var(--bg-hover); cursor: pointer; transition: all 150ms;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-blue)" stroke-width="2" style="margin-bottom: 0.75rem;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+              <div style="font-weight: 600; color: var(--color-primary-900);">Drag and drop your sales history file here, or click to browse</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Supports .csv, .xlsx, and .json files with date, sku, and sales_units</div>
+              <input type="file" id="file-input" accept=".csv,.json,.xlsx,.xls" style="display: none;">
+            </div>
+
+            <!-- Validation Result Box -->
+            <div id="validation-box" style="display: none; margin-top: 1rem; border-radius: var(--radius-sm); padding: 1rem;"></div>
+          </div>
+        </div>
+
+        <!-- Sales Trend Visualization -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Historical Sales Trend</h3>
+              <div class="card-subtitle">Notice the 7-day cyclical weekly pattern. Training ends on 2026-09-04; held-out test week runs 2026-09-05 to 2026-09-11.</div>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+              <label for="select-history-sku" class="form-label" style="margin-bottom: 0;">SKU:</label>
+              <select id="select-history-sku" class="form-select" style="width: auto; padding: 4px 8px; font-size: 12px;">
+                <option value="SKU1">SKU1</option>
+                <option value="SKU2">SKU2</option>
+                <option value="SKU3">SKU3</option>
+                <option value="SKU4">SKU4</option>
+                <option value="SKU5">SKU5</option>
+              </select>
+            </div>
+          </div>
+          <div class="card-body">
+            <div style="height: 280px; position: relative;">
+              <canvas id="salesHistoryChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Historical Records Table -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Historical Sales Records (210 observations)</h3>
+              <div class="card-subtitle">Sorted chronologically. Stockout markers flag observations where sales underestimate uncensored demand.</div>
+            </div>
+            <span class="badge badge-info">210 Verified Records</span>
+          </div>
+          <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+            <table class="data-table">
+              <thead style="position: sticky; top: 0; z-index: 10;">
+                <tr>
+                  <th>Date</th>
+                  <th>SKU</th>
+                  <th>Sales Units</th>
+                  <th>Stockout Flag</th>
+                  <th>Stock on Hand</th>
+                  <th>Supplier Lead Time</th>
+                  <th>Supplier MOQ</th>
+                  <th>Partition Phase</th>
+                </tr>
+              </thead>
+              <tbody id="history-tbody">
+                <tr><td colspan="8" style="text-align: center; padding: 2rem;">Loading sales history...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/sales.js"></script>
+</body>
+</html>

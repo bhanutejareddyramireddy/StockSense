@@ -1,0 +1,57 @@
+[
+  {
+    "sku": "SKU1",
+    "name": "Basmati Rice 5kg",
+    "category": "Grains",
+    "available_stock": 45,
+    "lead_days": 3,
+    "moq": 5,
+    "pack_size": 1,
+    "unit_cost_inr": 350.0,
+    "selling_price_inr": 450.0
+  },
+  {
+    "sku": "SKU2",
+    "name": "Sunflower Oil 1L",
+    "category": "Oils",
+    "available_stock": 28,
+    "lead_days": 4,
+    "moq": 6,
+    "pack_size": 6,
+    "unit_cost_inr": 120.0,
+    "selling_price_inr": 160.0
+  },
+  {
+    "sku": "SKU3",
+    "name": "Whole Wheat Atta 10kg",
+    "category": "Flour",
+    "available_stock": 60,
+    "lead_days": 2,
+    "moq": 10,
+    "pack_size": 1,
+    "unit_cost_inr": 380.0,
+    "selling_price_inr": 440.0
+  },
+  {
+    "sku": "SKU4",
+    "name": "Toor Dal 1kg",
+    "category": "Pulses",
+    "available_stock": 15,
+    "lead_days": 5,
+    "moq": 5,
+    "pack_size": 5,
+    "unit_cost_inr": 140.0,
+    "selling_price_inr": 180.0
+  },
+  {
+    "sku": "SKU5",
+    "name": "Iodized Table Salt 1kg",
+    "category": "Spices",
+    "available_stock": 80,
+    "lead_days": 3,
+    "moq": 10,
+    "pack_size": 10,
+    "unit_cost_inr": 25.0,
+    "selling_price_inr": 30.0
+  }
+]

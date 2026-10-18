@@ -1,0 +1,2162 @@
+[
+  {
+    "date": "2026-09-18",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-18",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-18",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-18",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-18",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-18",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-18",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-18",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-18",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-18",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-18",
+    "sku": "SKU-CYC01",
+    "sales_units": 20,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-18",
+    "sku": "SKU-CEN01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-19",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-19",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-19",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-19",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-19",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-19",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-19",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-19",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-19",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-19",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-19",
+    "sku": "SKU-CYC01",
+    "sales_units": 25,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-19",
+    "sku": "SKU-CEN01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-20",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-20",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-20",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-20",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-20",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-20",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-20",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-20",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-20",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-20",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-20",
+    "sku": "SKU-CYC01",
+    "sales_units": 25,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-20",
+    "sku": "SKU-CEN01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-21",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-21",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-21",
+    "sku": "SKU-OVR01",
+    "sales_units": 0,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-21",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-21",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-21",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-21",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-21",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-21",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-21",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-21",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-21",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-22",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-22",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-22",
+    "sku": "SKU-OVR01",
+    "sales_units": 1,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-22",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-22",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-22",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-22",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-22",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-22",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-22",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-22",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-22",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-23",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-23",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-23",
+    "sku": "SKU-OVR01",
+    "sales_units": 0,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-23",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-23",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-23",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-23",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-23",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-23",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-23",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-23",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-23",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-24",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-24",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-24",
+    "sku": "SKU-OVR01",
+    "sales_units": 1,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-24",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-24",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-24",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-24",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-24",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-24",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-24",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-24",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-24",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-25",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-25",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-25",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-25",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-25",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-25",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-25",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-25",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-25",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-25",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-25",
+    "sku": "SKU-CYC01",
+    "sales_units": 20,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-25",
+    "sku": "SKU-CEN01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-26",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-26",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-26",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-26",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-26",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-26",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-26",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-26",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-26",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-26",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-26",
+    "sku": "SKU-CYC01",
+    "sales_units": 25,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-26",
+    "sku": "SKU-CEN01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-27",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-27",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-27",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-27",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-27",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-27",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-27",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-27",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-27",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-27",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-27",
+    "sku": "SKU-CYC01",
+    "sales_units": 25,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-27",
+    "sku": "SKU-CEN01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-28",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-28",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-28",
+    "sku": "SKU-OVR01",
+    "sales_units": 1,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-28",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-28",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-28",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-28",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-28",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-28",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-28",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-28",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-28",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-29",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-29",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-29",
+    "sku": "SKU-OVR01",
+    "sales_units": 0,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-29",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-29",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-29",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-29",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-29",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-29",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-29",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-29",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-29",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-30",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-30",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-30",
+    "sku": "SKU-OVR01",
+    "sales_units": 1,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-30",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-30",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-30",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-30",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-30",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-30",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-30",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-30",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-09-30",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-01",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-01",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-01",
+    "sku": "SKU-OVR01",
+    "sales_units": 0,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-01",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-01",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-01",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-01",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-01",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-01",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-01",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-01",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-01",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-02",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-02",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-02",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-02",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-02",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-02",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-02",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-02",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-02",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-02",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-02",
+    "sku": "SKU-CYC01",
+    "sales_units": 20,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-02",
+    "sku": "SKU-CEN01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-03",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-03",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-03",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-03",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-03",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-03",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-03",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-03",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-03",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-03",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-03",
+    "sku": "SKU-CYC01",
+    "sales_units": 25,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-03",
+    "sku": "SKU-CEN01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-04",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-04",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-04",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-04",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-04",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-04",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-04",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-04",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-04",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-04",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-04",
+    "sku": "SKU-CYC01",
+    "sales_units": 25,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-04",
+    "sku": "SKU-CEN01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-05",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-05",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-05",
+    "sku": "SKU-OVR01",
+    "sales_units": 0,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-05",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-05",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-05",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-05",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-05",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-05",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-05",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-05",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-05",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-06",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-06",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-06",
+    "sku": "SKU-OVR01",
+    "sales_units": 1,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-06",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-06",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-06",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-06",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-06",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-06",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-06",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-06",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-06",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-07",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-07",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-07",
+    "sku": "SKU-OVR01",
+    "sales_units": 0,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-07",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-07",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-07",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-07",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-07",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-07",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-07",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-07",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-07",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-08",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-08",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-08",
+    "sku": "SKU-OVR01",
+    "sales_units": 1,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-08",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-08",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-08",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-08",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-08",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-08",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-08",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-08",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-08",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-09",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-09",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-09",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-09",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-09",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-09",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-09",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-09",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-09",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-09",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-09",
+    "sku": "SKU-CYC01",
+    "sales_units": 20,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-09",
+    "sku": "SKU-CEN01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-10",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-10",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-10",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-10",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-10",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-10",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-10",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-10",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-10",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-10",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-10",
+    "sku": "SKU-CYC01",
+    "sales_units": 25,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-10",
+    "sku": "SKU-CEN01",
+    "sales_units": 0,
+    "stockout": true
+  },
+  {
+    "date": "2026-10-11",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-11",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-11",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-11",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-11",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-11",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-11",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-11",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-11",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-11",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-11",
+    "sku": "SKU-CYC01",
+    "sales_units": 25,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-11",
+    "sku": "SKU-CEN01",
+    "sales_units": 0,
+    "stockout": true
+  },
+  {
+    "date": "2026-10-12",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-12",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-12",
+    "sku": "SKU-OVR01",
+    "sales_units": 1,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-12",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-12",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-12",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-12",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-12",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-12",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-12",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-12",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-12",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-13",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-13",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-13",
+    "sku": "SKU-OVR01",
+    "sales_units": 0,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-13",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-13",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-13",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-13",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-13",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-13",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-13",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-13",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-13",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-14",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-14",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-14",
+    "sku": "SKU-OVR01",
+    "sales_units": 1,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-14",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-14",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-14",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-14",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-14",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-14",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-14",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-14",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-14",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-15",
+    "sku": "SKU-URG01",
+    "sales_units": 11,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-15",
+    "sku": "SKU-URG02",
+    "sales_units": 19,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-15",
+    "sku": "SKU-OVR01",
+    "sales_units": 0,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-15",
+    "sku": "SKU-INB01",
+    "sales_units": 9,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-15",
+    "sku": "SKU-RSV01",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-15",
+    "sku": "SKU-MOQ01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-15",
+    "sku": "SKU-PCK01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-15",
+    "sku": "SKU-PER01",
+    "sales_units": 5,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-15",
+    "sku": "SKU-PER02",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-15",
+    "sku": "SKU-ABC01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-15",
+    "sku": "SKU-CYC01",
+    "sales_units": 8,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-15",
+    "sku": "SKU-CEN01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-16",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-16",
+    "sku": "SKU-URG02",
+    "sales_units": 24,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-16",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-16",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-16",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-16",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-16",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-16",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-16",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-16",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-16",
+    "sku": "SKU-CYC01",
+    "sales_units": 20,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-16",
+    "sku": "SKU-CEN01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-17",
+    "sku": "SKU-URG01",
+    "sales_units": 15,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-17",
+    "sku": "SKU-URG02",
+    "sales_units": 0,
+    "stockout": true
+  },
+  {
+    "date": "2026-10-17",
+    "sku": "SKU-OVR01",
+    "sales_units": 2,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-17",
+    "sku": "SKU-INB01",
+    "sales_units": 12,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-17",
+    "sku": "SKU-RSV01",
+    "sales_units": 14,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-17",
+    "sku": "SKU-MOQ01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-17",
+    "sku": "SKU-PCK01",
+    "sales_units": 18,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-17",
+    "sku": "SKU-PER01",
+    "sales_units": 7,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-17",
+    "sku": "SKU-PER02",
+    "sales_units": 10,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-17",
+    "sku": "SKU-ABC01",
+    "sales_units": 4,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-17",
+    "sku": "SKU-CYC01",
+    "sales_units": 25,
+    "stockout": false
+  },
+  {
+    "date": "2026-10-17",
+    "sku": "SKU-CEN01",
+    "sales_units": 18,
+    "stockout": false
+  }
+]

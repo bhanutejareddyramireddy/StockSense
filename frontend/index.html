@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StockSense — Smarter Inventory Planning for Growing Businesses</title>
+  <meta name="description" content="StockSense: Demand forecasting, automated replenishment proposals, lead-time shock simulator, and inventory optimization for retail store chains.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --color-primary: #1d68ed;
+      --color-primary-hover: #1557d4;
+      --color-primary-light: #eff6ff;
+      --color-primary-border: #bfdbfe;
+      --color-navy: #0b1f48;
+      --color-slate-900: #0f172a;
+      --color-slate-800: #1e293b;
+      --color-slate-700: #334155;
+      --color-slate-600: #475569;
+      --color-slate-500: #64748b;
+      --color-slate-400: #94a3b8;
+      --color-slate-200: #e2e8f0;
+      --color-slate-100: #f8fafc;
+      --color-emerald: #10b981;
+      --color-amber: #f59e0b;
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-slate-900);
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Top Sticky Navigation Bar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #ffffff;
+      border-bottom: 1px solid #f1f5f9;
+      padding: 0.85rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .brand-logo-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+
+    .brand-icon-box {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-text-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+    }
+
+    .brand-tagline {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-slate-500);
+      margin-top: 1px;
+    }
+
+    /* Nav Center Links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-size: 0.925rem;
+      font-weight: 600;
+      color: var(--color-slate-600);
+      transition: color 0.15s ease;
+      position: relative;
+      padding: 0.35rem 0;
+    }
+
+    .nav-link:hover {
+      color: var(--color-primary);
+    }
+
+    .nav-link.active {
+      color: var(--color-primary);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2.5px;
+      background: var(--color-primary);
+      border-radius: 999px;
+    }
+
+    /* Nav Action Buttons */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .btn-login-nav {
+      padding: 0.55rem 1.4rem;
+      border: 1.5px solid #bfdbfe;
+      background: #ffffff;
+      color: #1d4ed8;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-login-nav:hover {
+      background: #eff6ff;
+      border-color: #93c5fd;
+    }
+
+    .btn-get-started-nav {
+      padding: 0.6rem 1.45rem;
+      background: var(--color-primary);
+      background-image: linear-gradient(180deg, #256be8 0%, #1757d4 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(29, 104, 237, 0.3);
+      transition: all 0.15s ease;
+    }
+
+    .btn-get-started-nav:hover {
+      background-image: linear-gradient(180deg, #2d74f3 0%, #1551c9 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(29, 104, 237, 0.38);
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      position: relative;
+      background: url('images/landing_hero_bg.jpg') right center / cover no-repeat;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 4.5rem 3rem 4rem 3rem;
+    }
+
+    /* Organic Sweeping Wave Overlay */
+    .hero-backdrop-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, 
+        #ffffff 0%, 
+        #ffffff 42%, 
+        rgba(255, 255, 255, 0.94) 54%, 
+        rgba(240, 246, 255, 0.55) 72%, 
+        rgba(240, 246, 255, 0.15) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-content-container {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.05fr 1.15fr;
+      align-items: center;
+      gap: 3.5rem;
+    }
+
+    /* Left Hero Column */
+    .hero-left-col {
+      display: flex;
+      flex-direction: column;
+      max-width: 580px;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #e0f2fe;
+      border: 1px solid #bae6fd;
+      border-radius: 9999px;
+      padding: 0.38rem 0.95rem;
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: #0284c7;
+      width: fit-content;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-heading {
+      font-family: var(--font-display);
+      font-size: 3.15rem;
+      font-weight: 800;
+      line-height: 1.16;
+      letter-spacing: -0.03em;
+      color: var(--color-navy);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-heading span.highlight {
+      color: var(--color-primary);
+    }
+
+    .hero-subtext {
+      font-size: 1.075rem;
+      color: var(--color-slate-600);
+      line-height: 1.6;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.85rem 1.65rem;
+      background: var(--color-primary);
+      background-image: linear-gradient(180deg, #256be8 0%, #1757d4 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(29, 104, 237, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(29, 104, 237, 0.45);
+      background-image: linear-gradient(180deg, #2d74f3 0%, #1551c9 100%);
+    }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.82rem 1.45rem;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-secondary:hover {
+      background: #dbeafe;
+      transform: translateY(-1px);
+    }
+
+    .hero-trust-row {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-slate-600);
+    }
+
+    .trust-check-icon {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: #10b981;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Right Hero Column: Dashboard UI Mockup */
+    .hero-mockup-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dashboard-preview-card {
+      width: 100%;
+      max-width: 680px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 165px 1fr;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: pointer;
+    }
+
+    .dashboard-preview-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 35px 70px -15px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Mockup Sidebar */
+    .mock-sidebar {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 1.15rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mock-brand-head {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0 0.4rem 0.85rem 0.4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 0.5rem;
+    }
+
+    .mock-brand-head span {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #ffffff;
+    }
+
+    .mock-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.42rem 0.6rem;
+      border-radius: 7px;
+      font-size: 0.725rem;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .mock-nav-item.active {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Mockup Body */
+    .mock-body {
+      background: #f8fafc;
+      padding: 1.15rem 1.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      overflow: hidden;
+    }
+
+    .mock-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .mock-search {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.72rem;
+      color: #94a3b8;
+      flex: 1;
+      max-width: 240px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .mock-user-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .mock-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #1d4ed8;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mock-user-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .mock-user-meta .name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--color-slate-800);
+    }
+
+    .mock-user-meta .role {
+      font-size: 0.62rem;
+      color: var(--color-slate-500);
+    }
+
+    .mock-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mock-head-text h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--color-slate-900);
+    }
+
+    .mock-head-text p {
+      font-size: 0.68rem;
+      color: var(--color-slate-500);
+    }
+
+    .mock-dataset-tag {
+      font-size: 0.65rem;
+      background: #e2e8f0;
+      color: var(--color-slate-700);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    /* Mock Stats Row */
+    .mock-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.55rem;
+    }
+
+    .mock-stat-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 0.6rem 0.55rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .mock-stat-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .mock-stat-val {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--color-slate-900);
+      line-height: 1.1;
+    }
+
+    .mock-stat-lbl {
+      font-size: 0.58rem;
+      color: var(--color-slate-500);
+      line-height: 1.1;
+    }
+
+    /* Mock Charts Grid */
+    .mock-charts-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 0.65rem;
+    }
+
+    .mock-chart-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mock-chart-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--color-slate-800);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Stock Coverage Bars in Mockup */
+    .mock-coverage-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0.2rem;
+    }
+
+    .mock-coverage-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.45rem;
+      font-size: 0.62rem;
+    }
+
+    .mock-coverage-row .sku {
+      width: 32px;
+      font-weight: 600;
+      color: var(--color-slate-600);
+    }
+
+    .mock-bar-track {
+      flex: 1;
+      height: 6px;
+      background: #f1f5f9;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .mock-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+    }
+
+    .mock-coverage-row .days {
+      width: 34px;
+      text-align: right;
+      color: var(--color-slate-500);
+    }
+
+    /* KEY METRICS STRIP */
+    .metrics-strip-section {
+      background: #ffffff;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 2.25rem 3rem;
+    }
+
+    .metrics-strip-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .metric-strip-item {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+    }
+
+    .metric-icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .metric-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--color-slate-900);
+      line-height: 1.15;
+    }
+
+    .metric-sub {
+      font-size: 0.8rem;
+      color: var(--color-slate-500);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    /* FEATURES SECTION */
+    .features-section {
+      padding: 5rem 3rem;
+      background: #ffffff;
+    }
+
+    .section-head-center {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 3.5rem auto;
+    }
+
+    .section-tag-label {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .section-main-heading {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-description {
+      font-size: 1rem;
+      color: var(--color-slate-600);
+      line-height: 1.6;
+    }
+
+    .features-grid-container {
+      max-width: 1350px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border: 1.5px solid #eef2f6;
+      border-radius: 18px;
+      padding: 2.25rem 2rem;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+    }
+
+    .feature-card:hover {
+      border-color: #bfdbfe;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(29, 104, 237, 0.1);
+    }
+
+    .feature-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #eff6ff;
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-card-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-slate-900);
+      line-height: 1.25;
+    }
+
+    .feature-card-text {
+      font-size: 0.9rem;
+      color: var(--color-slate-600);
+      line-height: 1.55;
+    }
+
+    /* HOW IT WORKS SECTION */
+    .how-it-works-section {
+      padding: 1rem 3rem 6rem 3rem;
+      background: #ffffff;
+    }
+
+    .steps-banner-container {
+      max-width: 1350px;
+      margin: 0 auto;
+      background: #f1f7fe;
+      border: 1.5px solid #dbeafe;
+      border-radius: 24px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .steps-flow-row {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex: 1;
+    }
+
+    .flow-step-item {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      flex: 1;
+    }
+
+    .step-number-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-text-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-slate-900);
+      line-height: 1.2;
+    }
+
+    .step-desc {
+      font-size: 0.825rem;
+      color: var(--color-slate-600);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    .step-arrow-divider {
+      color: #94a3b8;
+      font-size: 1.35rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .btn-steps-action {
+      padding: 0.95rem 1.85rem;
+      background: var(--color-primary);
+      background-image: linear-gradient(180deg, #256be8 0%, #1757d4 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-size: 0.975rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(29, 104, 237, 0.35);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-steps-action:hover {
+      background-image: linear-gradient(180deg, #2d74f3 0%, #1551c9 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(29, 104, 237, 0.45);
+    }
+
+    /* AUTH MODAL */
+    .auth-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 31, 72, 0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .auth-modal-backdrop.open {
+      display: flex;
+    }
+
+    .auth-modal-window {
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.35);
+      width: 100%;
+      max-width: 480px;
+      padding: 2.75rem 2.5rem;
+      position: relative;
+      animation: modalFadeIn 0.25s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .btn-close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #f1f5f9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--color-slate-500);
+      transition: all 0.15s ease;
+    }
+
+    .btn-close-modal:hover {
+      background: #e2e8f0;
+      color: var(--color-slate-900);
+    }
+
+    /* Form Fields inside Modal */
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--color-slate-900);
+      text-align: center;
+    }
+
+    .modal-sub {
+      font-size: 0.9rem;
+      color: var(--color-slate-500);
+      text-align: center;
+      margin-top: 0.35rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .input-field-group {
+      margin-bottom: 1.15rem;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-slate-800);
+      margin-bottom: 0.45rem;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-icon-left {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-slate-400);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .text-input {
+      width: 100%;
+      padding: 0.78rem 1rem 0.78rem 2.65rem;
+      border: 1.5px solid var(--color-slate-200);
+      border-radius: 12px;
+      font-size: 0.925rem;
+      font-family: inherit;
+      color: var(--color-slate-900);
+      background: #ffffff;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .text-input:focus {
+      border-color: var(--color-primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(29, 104, 237, 0.15);
+    }
+
+    .btn-eye-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--color-slate-400);
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .btn-eye-toggle:hover {
+      color: var(--color-slate-700);
+    }
+
+    .name-grid-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+
+    .btn-primary-action {
+      width: 100%;
+      padding: 0.875rem 1.25rem;
+      background: var(--color-primary);
+      background-image: linear-gradient(180deg, #256be8 0%, #1757d4 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-size: 0.985rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      box-shadow: 0 4px 14px rgba(29, 104, 237, 0.38);
+      transition: all 0.2s ease;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary-action:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(29, 104, 237, 0.45);
+    }
+
+    .bottom-cta-banner {
+      margin-top: 1.5rem;
+      background: #f1f6fe;
+      border: 1px solid #dbeafe;
+      border-radius: 16px;
+      padding: 0.85rem 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .bottom-cta-banner:hover {
+      background: #e8f1fd;
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    .app-footer {
+      border-top: 1px solid #e2e8f0;
+      background: #f8fafc;
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--color-slate-500);
+      font-size: 0.85rem;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Toast */
+    .status-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 110;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      background: #0f172a;
+      color: #ffffff;
+      border-left: 4px solid #10b981;
+    }
+
+    .status-toast.toast-error {
+      border-left-color: #ef4444;
+      background: #18111b;
+    }
+
+    .status-toast.visible {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 1180px) {
+      .hero-content-container {
+        grid-template-columns: 1fr;
+      }
+      .metrics-strip-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .features-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .steps-flow-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .steps-banner-container {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0.85rem 1.5rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero-section {
+        padding: 3rem 1.5rem;
+      }
+      .hero-heading {
+        font-size: 2.35rem;
+      }
+      .metrics-strip-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .features-grid-container {
+        grid-template-columns: 1fr;
+      }
+      .dashboard-preview-card {
+        grid-template-columns: 1fr;
+      }
+      .mock-sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="navbar">
+    <a href="index.html" class="brand-logo-group">
+      <div class="brand-icon-box">
+        <!-- StockSense 3D Blue Box Icon -->
+        <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4L42 14V34L24 44L6 34V14L24 4Z" fill="#1e40af"/>
+          <path d="M24 4L42 14L24 24L6 14L24 4Z" fill="#3b82f6"/>
+          <path d="M6 14L24 24V44L6 34V14Z" fill="#1d4ed8"/>
+          <path d="M42 14L24 24V44L42 34V14Z" fill="#172554"/>
+          <path d="M18 28L24 16L30 28M24 18V32" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="brand-text-block">
+        <div class="brand-title">StockSense</div>
+        <div class="brand-tagline">Know Your Stock. Plan Ahead.</div>
+      </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#how-it-works" class="nav-link">How It Works</a>
+      <a href="#about" class="nav-link">About</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="login.html" class="btn-login-nav">Login</a>
+      <a href="login.html" class="btn-get-started-nav">Get Started</a>
+    </div>
+  </header>
+
+  <!-- Main Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-backdrop-overlay"></div>
+
+    <div class="hero-content-container">
+      
+      <!-- Left Column: Copy & CTAs -->
+      <div class="hero-left-col">
+        <div class="pill-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+          <span>AI-Powered Inventory Planning</span>
+        </div>
+
+        <h1 class="hero-heading">
+          Smarter Inventory<br>
+          Planning for<br>
+          <span class="highlight">Growing Businesses</span>
+        </h1>
+
+        <p class="hero-subtext">
+          Forecast demand, plan replenishment and reduce stockouts with simple, data-driven insights. StockSense helps small and medium retail chains make better inventory decisions.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="login.html" class="btn-hero-primary" id="btnHeroGetStarted">
+            <span>Get Started</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+
+          <a href="#features" class="btn-hero-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            <span>Learn More</span>
+          </a>
+        </div>
+
+
+      </div>
+
+      <!-- Right Column: Interactive StockSense Dashboard Mockup -->
+      <div class="hero-mockup-wrapper">
+        <div class="dashboard-preview-card" onclick="window.location.href='dashboard.html'" title="Click to open interactive Dashboard">
+          
+          <!-- Mock Sidebar -->
+          <div class="mock-sidebar">
+            <div class="mock-brand-head">
+              <svg width="18" height="18" viewBox="0 0 48 48" fill="none">
+                <path d="M24 4L42 14L24 24L6 14L24 4Z" fill="#3b82f6"/>
+                <path d="M6 14L24 24V44L6 34V14Z" fill="#1d4ed8"/>
+                <path d="M42 14L24 24V44L42 34V14Z" fill="#1e40af"/>
+              </svg>
+              <span>StockSense</span>
+            </div>
+
+            <div class="mock-nav-item active">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+              <span>Dashboard</span>
+            </div>
+            <div class="mock-nav-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg>
+              <span>Products</span>
+            </div>
+            <div class="mock-nav-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+              <span>Sales History</span>
+            </div>
+            <div class="mock-nav-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>
+              <span>Forecasting</span>
+            </div>
+            <div class="mock-nav-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span>Replenishment</span>
+            </div>
+            <div class="mock-nav-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+              <span>Scenario Simulator</span>
+            </div>
+            <div class="mock-nav-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>Reports</span>
+            </div>
+            <div class="mock-nav-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4"/></svg>
+              <span>Settings</span>
+            </div>
+          </div>
+
+          <!-- Mock Main Content -->
+          <div class="mock-body">
+            <!-- Top bar -->
+            <div class="mock-topbar">
+              <div class="mock-search">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <span>Search products, SKUs...</span>
+              </div>
+
+              <div class="mock-user-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                <div class="mock-avatar">B</div>
+                <div class="mock-user-meta">
+                  <span class="name">Bhanu Teja</span>
+                  <span class="role">Store Manager</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Header Row -->
+            <div class="mock-header-row">
+              <div class="mock-head-text">
+                <h4>Dashboard</h4>
+                <p>Overview of your inventory, forecasts and key insights</p>
+              </div>
+              <div style="text-align: right;">
+                <span class="mock-dataset-tag">Dataset: C19 (fixture.json)</span>
+                <div style="font-size: 0.58rem; color: #94a3b8; margin-top: 2px;">Last updated: 11 Sep 2026</div>
+              </div>
+            </div>
+
+            <!-- Stat Cards -->
+            <div class="mock-stats-grid">
+              <div class="mock-stat-card">
+                <div class="mock-stat-icon" style="background: #e0f2fe; color: #0284c7;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                </div>
+                <div>
+                  <div class="mock-stat-val">5</div>
+                  <div class="mock-stat-lbl">Total SKUs</div>
+                </div>
+              </div>
+
+              <div class="mock-stat-card">
+                <div class="mock-stat-icon" style="background: #dcfce7; color: #16a34a;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg>
+                </div>
+                <div>
+                  <div class="mock-stat-val">320</div>
+                  <div class="mock-stat-lbl">Available Stock</div>
+                </div>
+              </div>
+
+              <div class="mock-stat-card">
+                <div class="mock-stat-icon" style="background: #fee2e2; color: #dc2626;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div>
+                  <div class="mock-stat-val">1</div>
+                  <div class="mock-stat-lbl">At Risk of Stockout</div>
+                </div>
+              </div>
+
+              <div class="mock-stat-card">
+                <div class="mock-stat-icon" style="background: #fef3c7; color: #d97706;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div>
+                  <div class="mock-stat-val">3</div>
+                  <div class="mock-stat-lbl">Require Replenishment</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="mock-charts-grid">
+              
+              <!-- Demand Forecast Graphic -->
+              <div class="mock-chart-box">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <span class="mock-chart-title">Demand Forecast (Next 7 Days)</span>
+                  <div style="display: flex; gap: 0.45rem; font-size: 0.55rem;">
+                    <span style="color: #3b82f6;">&bull; Actual Sales</span>
+                    <span style="color: #f59e0b;">&bull; Baseline Forecast</span>
+                    <span style="color: #10b981;">&bull; Model Forecast</span>
+                  </div>
+                </div>
+
+                <!-- Vector SVG Multi-Line Chart -->
+                <svg width="100%" height="88" viewBox="0 0 260 88" fill="none">
+                  <line x1="20" y1="75" x2="250" y2="75" stroke="#f1f5f9" stroke-width="1"/>
+                  <line x1="20" y1="50" x2="250" y2="50" stroke="#f1f5f9" stroke-width="1"/>
+                  <line x1="20" y1="25" x2="250" y2="25" stroke="#f1f5f9" stroke-width="1"/>
+                  
+                  <!-- Area fill -->
+                  <polygon points="140,55 160,50 180,42 200,38 220,32 240,25 240,75 140,75" fill="rgba(59, 130, 246, 0.1)"/>
+                  
+                  <!-- Actual sales line -->
+                  <polyline points="25,68 55,62 85,68 115,55 140,55" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
+                  <circle cx="25" cy="68" r="2" fill="#3b82f6"/>
+                  <circle cx="55" cy="62" r="2" fill="#3b82f6"/>
+                  <circle cx="85" cy="68" r="2" fill="#3b82f6"/>
+                  <circle cx="115" cy="55" r="2" fill="#3b82f6"/>
+                  <circle cx="140" cy="55" r="2.5" fill="#3b82f6"/>
+
+                  <!-- Baseline Forecast Line -->
+                  <polyline points="140,55 160,50 180,42 200,38 220,32 240,25" stroke="#f59e0b" stroke-width="1.6" stroke-dasharray="3 3"/>
+                  
+                  <!-- Model Forecast Line -->
+                  <polyline points="140,55 160,48 180,40 200,35 220,30 240,22" stroke="#10b981" stroke-width="1.6"/>
+                  
+                  <!-- Cutoff vertical line -->
+                  <line x1="140" y1="12" x2="140" y2="75" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"/>
+                  
+                  <!-- Labels -->
+                  <text x="22" y="85" font-size="6" fill="#94a3b8">Sep 05</text>
+                  <text x="60" y="85" font-size="6" fill="#94a3b8">Sep 06</text>
+                  <text x="100" y="85" font-size="6" fill="#94a3b8">Sep 07</text>
+                  <text x="140" y="85" font-size="6" fill="#94a3b8">Sep 08</text>
+                  <text x="180" y="85" font-size="6" fill="#94a3b8">Sep 09</text>
+                  <text x="220" y="85" font-size="6" fill="#94a3b8">Sep 10</text>
+                </svg>
+              </div>
+
+              <!-- Stock Coverage Box -->
+              <div class="mock-chart-box">
+                <span class="mock-chart-title">Stock Coverage (Days)</span>
+                
+                <div class="mock-coverage-list">
+                  <div class="mock-coverage-row">
+                    <span class="sku">SKU1</span>
+                    <div class="mock-bar-track"><div class="mock-bar-fill" style="width: 80%; background: #10b981;"></div></div>
+                    <span class="days">8 days</span>
+                  </div>
+
+                  <div class="mock-coverage-row">
+                    <span class="sku">SKU2</span>
+                    <div class="mock-bar-track"><div class="mock-bar-fill" style="width: 55%; background: #10b981;"></div></div>
+                    <span class="days">5 days</span>
+                  </div>
+
+                  <div class="mock-coverage-row">
+                    <span class="sku">SKU3</span>
+                    <div class="mock-bar-track"><div class="mock-bar-fill" style="width: 25%; background: #f59e0b;"></div></div>
+                    <span class="days">2 days</span>
+                  </div>
+
+                  <div class="mock-coverage-row">
+                    <span class="sku">SKU4</span>
+                    <div class="mock-bar-track"><div class="mock-bar-fill" style="width: 65%; background: #10b981;"></div></div>
+                    <span class="days">6 days</span>
+                  </div>
+
+                  <div class="mock-coverage-row">
+                    <span class="sku">SKU5</span>
+                    <div class="mock-bar-track"><div class="mock-bar-fill" style="width: 45%; background: #3b82f6;"></div></div>
+                    <span class="days">4 days</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- KEY METRICS STRIP -->
+  <section class="metrics-strip-section">
+    <div class="metrics-strip-container">
+      
+      <div class="metric-strip-item">
+        <div class="metric-icon-circle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+            <line x1="16" x2="16" y1="2" y2="6"/>
+            <line x1="8" x2="8" y1="2" y2="6"/>
+            <line x1="3" x2="21" y1="10" y2="10"/>
+          </svg>
+        </div>
+        <div class="metric-text-group">
+          <div class="metric-title">7 Days</div>
+          <div class="metric-sub">Demand Forecast</div>
+        </div>
+      </div>
+
+      <div class="metric-strip-item">
+        <div class="metric-icon-circle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="metric-text-group">
+          <div class="metric-title">Reduce</div>
+          <div class="metric-sub">Stockouts</div>
+        </div>
+      </div>
+
+      <div class="metric-strip-item">
+        <div class="metric-icon-circle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+        </div>
+        <div class="metric-text-group">
+          <div class="metric-title">Better</div>
+          <div class="metric-sub">Inventory Coverage</div>
+        </div>
+      </div>
+
+      <div class="metric-strip-item">
+        <div class="metric-icon-circle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="metric-text-group">
+          <div class="metric-title">Data-Driven</div>
+          <div class="metric-sub">Business Decisions</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features-section" id="features">
+    <div class="section-head-center">
+      <span class="section-tag-label">FEATURES</span>
+      <h2 class="section-main-heading">Everything You Need for Inventory Planning</h2>
+      <p class="section-description">
+        From demand forecasting to replenishment recommendations, StockSense provides end-to-end inventory planning with a simple and intuitive interface.
+      </p>
+    </div>
+
+    <div class="features-grid-container">
+      
+      <!-- Card 1: Demand Forecasting -->
+      <div class="feature-card" onclick="window.location.href='forecasting.html'">
+        <div class="feature-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+        </div>
+        <h3 class="feature-card-title">Demand Forecasting</h3>
+        <p class="feature-card-text">
+          Predict next 7-day demand using data-driven models and compare with baseline.
+        </p>
+      </div>
+
+      <!-- Card 2: Replenishment Planning -->
+      <div class="feature-card" onclick="window.location.href='replenishment.html'">
+        <div class="feature-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <h3 class="feature-card-title">Replenishment Planning</h3>
+        <p class="feature-card-text">
+          Get optimal order quantities with supplier constraints, lead times and MOQ.
+        </p>
+      </div>
+
+      <!-- Card 3: Scenario Simulator -->
+      <div class="feature-card" onclick="window.location.href='scenarios.html'">
+        <div class="feature-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" x2="20" y1="21" y2="21"/>
+            <line x1="4" x2="20" y1="14" y2="14"/>
+            <line x1="4" x2="20" y1="7" y2="7"/>
+            <circle cx="9" cy="7" r="2"/>
+            <circle cx="15" cy="14" r="2"/>
+            <circle cx="10" cy="21" r="2"/>
+          </svg>
+        </div>
+        <h3 class="feature-card-title">Scenario Simulator</h3>
+        <p class="feature-card-text">
+          Test what-if scenarios like lead time changes, zero stock and demand shocks.
+        </p>
+      </div>
+
+      <!-- Card 4: Sales History & Trends -->
+      <div class="feature-card" onclick="window.location.href='sales.html'">
+        <div class="feature-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+            <path d="M12 7v5l4 2"/>
+          </svg>
+        </div>
+        <h3 class="feature-card-title">Sales History & Trends</h3>
+        <p class="feature-card-text">
+          Track sales velocity, past transactions, and daily demand patterns across all products.
+        </p>
+      </div>
+
+      <!-- Card 5: Products & Inventory -->
+      <div class="feature-card" onclick="window.location.href='inventory.html'">
+        <div class="feature-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"/>
+            <path d="m7.5 4.27 9 5.15"/>
+            <polyline points="3.29 7 12 12 20.71 7"/>
+            <line x1="12" x2="12" y1="22" y2="12"/>
+            <circle cx="18.5" cy="15.5" r="2.5"/>
+            <path d="M20.27 17.27 22 19"/>
+          </svg>
+        </div>
+        <h3 class="feature-card-title">Products & Inventory</h3>
+        <p class="feature-card-text">
+          List custom items, track stock on-hand, supplier lead times, and MOQ pack multiples.
+        </p>
+      </div>
+
+      <!-- Card 6: Reports & Export -->
+      <div class="feature-card" onclick="window.location.href='reports.html'">
+        <div class="feature-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" x2="12" y1="15" y2="3"/>
+          </svg>
+        </div>
+        <h3 class="feature-card-title">Reports & Export</h3>
+        <p class="feature-card-text">
+          Save results, export reports and share insights with your team.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS SECTION -->
+  <section class="how-it-works-section" id="how-it-works">
+    <div class="section-head-center" style="margin-bottom: 2.5rem;">
+      <span class="section-tag-label">HOW IT WORKS</span>
+      <h2 class="section-main-heading">Get Started in 3 Simple Steps</h2>
+    </div>
+
+    <div class="steps-banner-container">
+      <div class="steps-flow-row">
+        
+        <!-- Step 1 -->
+        <div class="flow-step-item">
+          <div class="step-number-circle">1</div>
+          <div class="step-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" x2="12" y1="3" y2="15"/>
+            </svg>
+          </div>
+          <div class="step-text-content">
+            <div class="step-title">Load Your Data</div>
+            <div class="step-desc">Use the provided dataset or upload your own CSV/JSON file.</div>
+          </div>
+        </div>
+
+        <div class="step-arrow-divider">&rarr;</div>
+
+        <!-- Step 2 -->
+        <div class="flow-step-item">
+          <div class="step-number-circle">2</div>
+          <div class="step-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+            </svg>
+          </div>
+          <div class="step-text-content">
+            <div class="step-title">Generate Forecast</div>
+            <div class="step-desc">Run demand forecasting and compare with baseline.</div>
+          </div>
+        </div>
+
+        <div class="step-arrow-divider">&rarr;</div>
+
+        <!-- Step 3 -->
+        <div class="flow-step-item">
+          <div class="step-number-circle">3</div>
+          <div class="step-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="8" height="4" x="8" y="2" rx="1" ry="1"/>
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+              <path d="m9 14 2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="step-text-content">
+            <div class="step-title">Get Recommendations</div>
+            <div class="step-desc">View replenishment suggestions, test scenarios and save your results.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <a href="login.html" class="btn-steps-action">
+        <span>Start Planning Now</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="app-footer" id="about">
+    <div class="footer-left">
+      <svg width="24" height="24" viewBox="0 0 48 48" fill="none">
+        <path d="M24 4L42 14L24 24L6 14L24 4Z" fill="#3b82f6"/>
+        <path d="M6 14L24 24V44L6 34V14Z" fill="#1d4ed8"/>
+        <path d="M42 14L24 24V44L42 34V14Z" fill="#1e40af"/>
+      </svg>
+      <span>&copy; 2026 StockSense. All rights reserved.</span>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+      <a href="terms.html" style="color: var(--color-slate-600); text-decoration: none; font-weight: 500;">Terms of Service</a>
+      <a href="privacy.html" style="color: var(--color-slate-600); text-decoration: none; font-weight: 500;">Privacy Policy</a>
+      <a href="dashboard.html" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">Launch Dashboard &rarr;</a>
+    </div>
+  </footer>
+
+  <!-- DUAL-STATE AUTH MODAL (LOGIN & REGISTER) -->
+  <div class="auth-modal-backdrop" id="authModal">
+    <div class="auth-modal-window">
+      <button type="button" class="btn-close-modal" id="btnCloseModal" title="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <div id="modalFormContainer">
+        <!-- Rendered via JS: Login vs Register -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Element -->
+  <div class="status-toast" id="toastNotice">
+    <span id="toastMsg">Action completed successfully.</span>
+  </div>
+
+  <script type="module">
+    import { auth } from './js/auth.js';
+
+    let authMode = 'login'; // 'login' | 'signup'
+
+    const authModal = document.getElementById('authModal');
+    const btnCloseModal = document.getElementById('btnCloseModal');
+    const modalFormContainer = document.getElementById('modalFormContainer');
+    const btnNavLogin = document.getElementById('btnNavLogin');
+    const btnNavGetStarted = document.getElementById('btnNavGetStarted');
+    const toastNotice = document.getElementById('toastNotice');
+    const toastMsg = document.getElementById('toastMsg');
+
+    let toastTimeout = null;
+    function showToast(message, isError = false) {
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastMsg.textContent = message;
+      if (isError) {
+        toastNotice.classList.add('toast-error');
+      } else {
+        toastNotice.classList.remove('toast-error');
+      }
+      toastNotice.classList.add('visible');
+      toastTimeout = setTimeout(() => toastNotice.classList.remove('visible'), 4000);
+    }
+
+    function openModal(mode = 'login') {
+      authMode = mode;
+      renderModalForm();
+      authModal.classList.add('open');
+    }
+
+    function closeModal() {
+      authModal.classList.remove('open');
+    }
+
+    function renderModalForm() {
+      if (authMode === 'login') {
+        modalFormContainer.innerHTML = `
+          <h2 class="modal-title">Welcome Back</h2>
+          <p class="modal-sub">Login to your StockSense account</p>
+
+          <form id="modalLoginForm">
+            <div class="input-field-group">
+              <label class="field-label" for="loginEmail">Email Address</label>
+              <div class="input-wrapper">
+                <span class="input-icon-left">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </span>
+                <input type="email" id="loginEmail" class="text-input" placeholder="Enter your email" required>
+              </div>
+            </div>
+
+            <div class="input-field-group">
+              <label class="field-label" for="loginPassword">Password</label>
+              <div class="input-wrapper">
+                <span class="input-icon-left">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </span>
+                <input type="password" id="loginPassword" class="text-input" placeholder="Enter your password" required>
+                <button type="button" class="btn-eye-toggle" data-target="loginPassword">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+              <a href="dashboard.html" style="font-size: 0.85rem; color: #1d4ed8; text-decoration: none; font-weight: 600;">⚡ Instant Demo Access</a>
+              <a href="#" id="modalForgotLink" style="font-size: 0.85rem; color: #1d68ed; text-decoration: none; font-weight: 600;">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn-primary-action" id="btnSubmitLogin">
+              <span>Login</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </form>
+
+          <div class="bottom-cta-banner" id="modalSwitchToSignup">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: #dbeafe; color: #1d68ed; display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              </div>
+              <div>
+                <div style="font-size: 0.9rem; font-weight: 700; color: #0f172a;">New to StockSense?</div>
+                <div style="font-size: 0.78rem; color: #64748b;">Create an account to get started.</div>
+              </div>
+            </div>
+            <div style="color: #1d68ed; font-size: 1.1rem; font-weight: 700;">&rarr;</div>
+          </div>
+        `;
+      } else {
+        modalFormContainer.innerHTML = `
+          <h2 class="modal-title">Create Your Account</h2>
+          <p class="modal-sub">Join StockSense and start managing inventory smarter.</p>
+
+          <form id="modalSignupForm">
+            <div class="name-grid-row">
+              <div class="input-field-group">
+                <label class="field-label" for="regFirstName">First Name</label>
+                <div class="input-wrapper">
+                  <span class="input-icon-left">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </span>
+                  <input type="text" id="regFirstName" class="text-input" placeholder="First name" required>
+                </div>
+              </div>
+
+              <div class="input-field-group">
+                <label class="field-label" for="regLastName">Last Name</label>
+                <div class="input-wrapper">
+                  <span class="input-icon-left">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </span>
+                  <input type="text" id="regLastName" class="text-input" placeholder="Last name" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-field-group">
+              <label class="field-label" for="regOrgName">Organization / Company Name</label>
+              <div class="input-wrapper">
+                <span class="input-icon-left">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M9 8h1m4 0h1m-5 4h1m4 0h1m-5 4h1m4 0h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/></svg>
+                </span>
+                <input type="text" id="regOrgName" class="text-input" placeholder="e.g. Apex Supermarkets or QuickBite" required>
+              </div>
+            </div>
+
+            <div class="input-field-group">
+              <label class="field-label" for="regEmail">Email Address</label>
+              <div class="input-wrapper">
+                <span class="input-icon-left">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </span>
+                <input type="email" id="regEmail" class="text-input" placeholder="Enter your email" required>
+              </div>
+            </div>
+
+            <div class="input-field-group">
+              <label class="field-label" for="regPassword">Password</label>
+              <div class="input-wrapper">
+                <span class="input-icon-left">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </span>
+                <input type="password" id="regPassword" class="text-input" placeholder="Create a password" required>
+                <button type="button" class="btn-eye-toggle" data-target="regPassword">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="input-field-group">
+              <label class="field-label" for="regConfirmPassword">Confirm Password</label>
+              <div class="input-wrapper">
+                <span class="input-icon-left">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </span>
+                <input type="password" id="regConfirmPassword" class="text-input" placeholder="Confirm your password" required>
+                <button type="button" class="btn-eye-toggle" data-target="regConfirmPassword">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.825rem; color: #475569; margin-bottom: 1.25rem; cursor: pointer;">
+              <input type="checkbox" id="modalTermsCheck" required style="margin-top: 2px;">
+              <span>I agree to the <a href="terms.html" target="_blank" style="color: #1d68ed;">Terms of Service</a> and <a href="privacy.html" target="_blank" style="color: #1d68ed;">Privacy Policy</a></span>
+            </label>
+
+            <button type="submit" class="btn-primary-action" id="btnSubmitSignup">
+              <span>Create Account</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </form>
+
+          <div class="bottom-cta-banner" id="modalSwitchToLogin">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div style="width: 36px; height: 36px; border-radius: 50%; background: #dbeafe; color: #1d68ed; display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
+              </div>
+              <div>
+                <div style="font-size: 0.9rem; font-weight: 700; color: #0f172a;">Already have an account?</div>
+                <div style="font-size: 0.78rem; color: #64748b;">Click to sign in to your workspace.</div>
+              </div>
+            </div>
+            <div style="color: #1d68ed; font-size: 1.1rem; font-weight: 700;">&rarr;</div>
+          </div>
+        `;
+      }
+
+      attachModalEvents();
+    }
+
+    function attachModalEvents() {
+      // Eye toggle
+      document.querySelectorAll('.btn-eye-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-target');
+          const input = document.getElementById(targetId);
+          if (!input) return;
+          if (input.type === 'password') {
+            input.type = 'text';
+            btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg>`;
+          } else {
+            input.type = 'password';
+            btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>`;
+          }
+        });
+      });
+
+      // Switchers
+      const switchSignup = document.getElementById('modalSwitchToSignup');
+      if (switchSignup) {
+        switchSignup.addEventListener('click', () => {
+          authMode = 'signup';
+          renderModalForm();
+        });
+      }
+
+      const switchLogin = document.getElementById('modalSwitchToLogin');
+      if (switchLogin) {
+        switchLogin.addEventListener('click', () => {
+          authMode = 'login';
+          renderModalForm();
+        });
+      }
+
+      // Forgot password link
+      const forgotLink = document.getElementById('modalForgotLink');
+      if (forgotLink) {
+        forgotLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          showToast("Password reset link sent to registered email.");
+        });
+      }
+
+      // Submit handlers
+      const loginForm = document.getElementById('modalLoginForm');
+      if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const email = document.getElementById('loginEmail').value.trim();
+          const pass = document.getElementById('loginPassword').value;
+          try {
+            await auth.login(email, pass);
+            showToast("Welcome back! Loading your inventory dashboard...", false);
+            setTimeout(() => window.location.href = 'dashboard.html', 700);
+          } catch (err) {
+            showToast(err.message || "Invalid email or password.", true);
+          }
+        });
+      }
+
+      const signupForm = document.getElementById('modalSignupForm');
+      if (signupForm) {
+        signupForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const first = document.getElementById('regFirstName').value.trim();
+          const last = document.getElementById('regLastName').value.trim();
+          const org = document.getElementById('regOrgName')?.value.trim() || 'StockSense Retail Store';
+          const email = document.getElementById('regEmail').value.trim();
+          const pass = document.getElementById('regPassword').value;
+          const confirm = document.getElementById('regConfirmPassword').value;
+          if (pass !== confirm) {
+            showToast("Passwords do not match.", true);
+            return;
+          }
+          if (pass.length < 8) {
+            showToast("Password must be at least 8 characters.", true);
+            return;
+          }
+          if (!/[A-Z]/.test(pass)) {
+            showToast("Password must include at least one uppercase letter (A-Z).", true);
+            return;
+          }
+          if (!/[a-zA-Z]/.test(pass) || !/[0-9]/.test(pass) || !/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~`]/.test(pass)) {
+            showToast("Password must include a mix of letters, numbers, and symbols.", true);
+            return;
+          }
+          try {
+            await auth.register(email, pass, `${first} ${last}`, org);
+            showToast("Account created! Loading your inventory dashboard...", false);
+            setTimeout(() => window.location.href = 'dashboard.html', 700);
+          } catch (err) {
+            showToast(err.message || "Failed to create account. Please check requirements.", true);
+          }
+        });
+      }
+    }
+
+    // Modal Triggers
+    btnNavLogin.addEventListener('click', () => openModal('login'));
+    btnNavGetStarted.addEventListener('click', () => openModal('signup'));
+    btnCloseModal.addEventListener('click', closeModal);
+    authModal.addEventListener('click', (e) => {
+      if (e.target === authModal) closeModal();
+    });
+  </script>
+</body>
+</html>

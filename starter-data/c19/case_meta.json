@@ -1,0 +1,31 @@
+{
+  "id": "C19",
+  "title": "Inventory Forecast and Replenishment Baseline",
+  "verdict": "Conditional and advanced",
+  "user": "Inventory planner",
+  "goal": "Produce a defensible short-horizon replenishment proposal with uncertainty.",
+  "engineering": "Forecast seven-day demand for 5 SKUs; compare a naive baseline; estimate coverage and proposed quantities with lead times.",
+  "mba": "Choose a narrow customer and payer; inspect the inherited product; quantify value and costs; negotiate the priority product change; create pricing, a first-customer experiment and a 30-day growth plan. Show why the product deserves adoption.",
+  "data": "date, SKU, units, available/held stock, inbound quantity/ETA, lead time, MOQ, pack size, stockout marker and evaluation cutoff.",
+  "gap": "C01 is city-category data for 28 days, not SKU history. Supply SKU-level history and holdout. Sales during stockouts are not uncensored demand.",
+  "checks": [
+    "Report per-SKU and aggregate MAE on a later held-out period versus the declared naive baseline; no future data in training.",
+    "Replenishment follows the declared stock-position formula, nonnegative quantities, MOQ/pack and inbound timing in five examples.",
+    "Zero sales, missing dates and a lead-time shock produce visible uncertainty and a revised proposal."
+  ],
+  "edge": "New SKU; intermittent demand; inbound late; unavailable stock; forecast below baseline quality.",
+  "pilot": "Use planner shadow review. Better forecasting is not guaranteed; earn credit for honest comparison and sensible decision policy, even if the baseline wins.",
+  "source_id": "F19",
+  "source": "Adapted from the reviewed bank, with a new business-building assignment",
+  "payer": "Small chain inventory planner",
+  "model": "Per-location planning subscription",
+  "growth": "Compare a simple baseline forecast and a constrained order plan",
+  "product_change": "Add MOQ and stockout handling before a complex model",
+  "mba_skills": "Demand planning, working capital, uncertainty analysis",
+  "tech_skills": "UI and state; data validation; tested business rules; CSV or JSON handling; readable evidence and a saved result",
+  "difficulty": "Stretch with supplied fallback",
+  "qualification": "No prior job experience or paid tools required. Business teams must demonstrate the commercial capabilities below; engineers may learn the stack during the event.",
+  "snapshot": "At MBA entry, save a demo or screen recording, current tests, known gaps, backlog and contributor list. Record the business team's joining time and baseline.",
+  "fixture": "starter-data/c19/fixture.json",
+  "test_scope": "Starter tests are public teaching checks, not a production benchmark. Judges vary inputs within the same published schema and product scope."
+}

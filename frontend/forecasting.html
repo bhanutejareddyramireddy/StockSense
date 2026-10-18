@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demand Forecasting — StockSense</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app-layout">
+    <div id="mobile-overlay" class="mobile-overlay"></div>
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <main class="app-main">
+      <header id="app-header" class="app-header"></header>
+
+      <div class="page-container">
+        
+        <!-- Header -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="font-size: 1.25rem; font-weight: 700;">Seven-Day Demand Forecasting</h2>
+            <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-top: 0.25rem;">
+              Reproducible Python demand projections comparing the declared Naive Same-Weekday Baseline against an alternative Moving Average.
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <label for="forecast-sku-select" class="form-label" style="margin-bottom: 0;">Product SKU:</label>
+            <select id="forecast-sku-select" class="form-select" style="width: auto; padding: 6px 12px; font-weight: 600;">
+              <option value="SKU1">SKU1 — Basmati Rice 5kg</option>
+              <option value="SKU2">SKU2 — Sunflower Oil 1L</option>
+              <option value="SKU3">SKU3 — Wheat Atta 10kg</option>
+              <option value="SKU4">SKU4 — Toor Dal 1kg</option>
+              <option value="SKU5">SKU5 — Table Salt 1kg</option>
+            </select>
+            <button id="btn-reforecast" class="btn btn-primary btn-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              <span>Refresh Forecast</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Demand Surge & Festival Multiplier Selector -->
+        <div class="card" style="margin-bottom: 1.25rem; border-left: 4px solid var(--color-brand-blue);">
+          <div class="card-body" style="padding: 0.875rem 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.875rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 1.125rem;">🎪</span>
+              <div>
+                <div style="font-size: 0.875rem; font-weight: 700; color: var(--color-primary-900);">Upcoming Demand Surge / Festival Multiplier</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Adjust projected sales velocity for upcoming festivals, salary crediting days, or promotional rush.</div>
+              </div>
+            </div>
+            <div class="multiplier-btn-group" style="display: flex; gap: 0.375rem; flex-wrap: wrap;">
+              <button type="button" class="btn btn-sm btn-multiplier btn-primary active" data-multiplier="1.0">Normal (1.0x)</button>
+              <button type="button" class="btn btn-sm btn-multiplier btn-outline" data-multiplier="1.25">💰 Salary Week (+25%)</button>
+              <button type="button" class="btn btn-sm btn-multiplier btn-outline" data-multiplier="1.50">🎉 Festival Rush (+50%)</button>
+              <button type="button" class="btn btn-sm btn-multiplier btn-outline" data-multiplier="2.00">🚀 Super Spike (+100%)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sales History Required Banner -->
+        <div id="sales-required-banner" class="alert attention-card" style="display: none; background: #eff6ff; border: 1px solid #3b82f6; margin-bottom: 1.5rem; padding: 1.25rem; border-radius: var(--radius-sm);">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+            <div>
+              <h4 style="color: #1d4ed8; font-size: 1rem; margin-bottom: 0.25rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+                <span>📈</span> Sales History Required to Calculate Demand Projections
+              </h4>
+              <p style="color: #1e40af; font-size: 0.8125rem; margin: 0; line-height: 1.4;">
+                Products are loaded in your inventory catalog. Forecasting requires daily sales transaction logs (Date, SKU, Sales Units) to compute AI demand patterns and weekly cyclicality.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+              <a href="sales.html" class="btn btn-primary btn-sm" style="text-decoration: none;">Upload Sales File &rarr;</a>
+              <button type="button" id="btn-load-demo-sales-forecast" class="btn btn-outline btn-sm" style="background: #fff; font-weight: 600;">⚡ Load Demo Sales Data</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Banners -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">7-Day Total Demand</span>
+              <span class="tooltip-wrap"><span class="tooltip-icon">&#9432;</span><span class="tooltip-bubble">Cumulative expected units sold over next 7 calendar days.</span></span>
+            </div>
+            <div class="metric-value" id="val-total-demand">-- units</div>
+            <div class="metric-subtext" id="val-daily-avg">Avg: -- units/day</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Baseline vs. Alternative</span>
+              <span class="tooltip-wrap"><span class="tooltip-icon">&#9432;</span><span class="tooltip-bubble">Baseline preserves weekly demand cycle; Moving Average flattens it into a horizontal mean.</span></span>
+            </div>
+            <div class="metric-value" style="font-size: 1.125rem;" id="val-base-vs-alt">-- vs --</div>
+            <div class="metric-subtext">Baseline vs 7-day MA 7-day totals</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Uncertainty & Quality</span>
+              <span class="badge badge-info" id="badge-uncertainty">Low Uncertainty</span>
+            </div>
+            <div class="metric-value" style="font-size: 1.125rem; color: var(--color-accent-teal);" id="val-sample-count">42 Days History</div>
+            <div class="metric-subtext">Zero missing dates detected</div>
+          </div>
+        </div>
+
+        <!-- Forecast Chart -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Daily Forecast Trajectory (As-Of 2026-09-12)</h3>
+              <div class="card-subtitle">Visualizing the 7-day predicted demand trajectory with 80% prediction intervals.</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div style="height: 320px; position: relative;">
+              <canvas id="forecastDetailChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily Forecast Table -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Daily Demand Breakdown</h3>
+            <span class="badge badge-neutral">7 Calendar Days</span>
+          </div>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Forecast Date</th>
+                  <th>Weekday</th>
+                  <th>Naive Baseline</th>
+                  <th>Alternative (SMA-7)</th>
+                  <th>Prediction Range (80% CI)</th>
+                  <th>Confidence</th>
+                </tr>
+              </thead>
+              <tbody id="forecast-breakdown-tbody">
+                <tr><td colspan="6" style="text-align: center; padding: 2rem;">Generating forecast...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/forecasting.js?v=3.0"></script>
+</body>
+</html>
