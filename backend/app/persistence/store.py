@@ -9,7 +9,20 @@ from backend.app.core.config import settings
 logger = logging.getLogger("stocksense.persistence")
 
 # Fallback local store path
-LOCAL_STORE_PATH = Path(__file__).resolve().parent.parent.parent.parent / "data" / "local_store.json"
+DEFAULT_STORE_PATH = Path(__file__).resolve().parent.parent.parent.parent / "data" / "local_store.json"
+
+# In serverless environments like Vercel or AWS Lambda, the workspace is read-only; use /tmp
+if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+    LOCAL_STORE_PATH = Path("/tmp/local_store.json")
+    if not LOCAL_STORE_PATH.exists() and DEFAULT_STORE_PATH.exists():
+        try:
+            import shutil
+            LOCAL_STORE_PATH.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(DEFAULT_STORE_PATH, LOCAL_STORE_PATH)
+        except Exception:
+            pass
+else:
+    LOCAL_STORE_PATH = DEFAULT_STORE_PATH
 
 class PersistenceStore:
     def __init__(self):
@@ -119,20 +132,32 @@ class PersistenceStore:
                     }
                 ]
             }
-            LOCAL_STORE_PATH.parent.mkdir(parents=True, exist_ok=True)
-            with open(LOCAL_STORE_PATH, "w") as f:
-                json.dump(initial_data, f, indent=2)
+            try:
+                LOCAL_STORE_PATH.parent.mkdir(parents=True, exist_ok=True)
+                with open(LOCAL_STORE_PATH, "w") as f:
+                    json.dump(initial_data, f, indent=2)
+            except Exception as e:
+                logger.warning("Could not initialize local store file (%s).", e)
 
     def _read_local(self) -> Dict[str, Any]:
         try:
-            with open(LOCAL_STORE_PATH, "r") as f:
-                return json.load(f)
-        except Exception:
-            return {"forecast_runs": [], "saved_scenarios": [], "business_outreach": [], "pricing_plan": {}, "audit_events": []}
+            if LOCAL_STORE_PATH.exists():
+                with open(LOCAL_STORE_PATH, "r") as f:
+                    return json.load(f)
+            if DEFAULT_STORE_PATH.exists():
+                with open(DEFAULT_STORE_PATH, "r") as f:
+                    return json.load(f)
+        except Exception as e:
+            logger.warning("Could not read local store (%s). Using in-memory fallback.", e)
+        return {"forecast_runs": [], "saved_scenarios": [], "business_outreach": [], "pricing_plan": {}, "audit_events": []}
 
     def _write_local(self, data: Dict[str, Any]):
-        with open(LOCAL_STORE_PATH, "w") as f:
-            json.dump(data, f, indent=2)
+        try:
+            LOCAL_STORE_PATH.parent.mkdir(parents=True, exist_ok=True)
+            with open(LOCAL_STORE_PATH, "w") as f:
+                json.dump(data, f, indent=2)
+        except Exception as e:
+            logger.warning("Could not write to local store at %s (%s).", LOCAL_STORE_PATH, e)
 
     # ----------------- Forecast Runs -----------------
     def save_forecast_run(self, run_data: Dict[str, Any]) -> str:

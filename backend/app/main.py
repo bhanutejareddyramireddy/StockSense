@@ -43,14 +43,14 @@ async def no_cache_static_middleware(request, call_next):
     return response
 
 # Mount API Routers FIRST so they take priority
-app.include_router(health.router, prefix=settings.API_PREFIX)
-app.include_router(dataset.router, prefix=settings.API_PREFIX)
-app.include_router(forecast.router, prefix=settings.API_PREFIX)
-app.include_router(evaluation.router, prefix=settings.API_PREFIX)
-app.include_router(replenishment.router, prefix=settings.API_PREFIX)
-app.include_router(scenarios.router, prefix=settings.API_PREFIX)
-app.include_router(reports.router, prefix=settings.API_PREFIX)
-app.include_router(business_plan.router, prefix=settings.API_PREFIX)
+api_routers = [
+    health.router, dataset.router, forecast.router, evaluation.router,
+    replenishment.router, scenarios.router, reports.router, business_plan.router
+]
+for r in api_routers:
+    app.include_router(r, prefix=settings.API_PREFIX)
+    # Also mount directly without prefix so both /api/path and /path resolve seamlessly
+    app.include_router(r)
 
 # Static frontend directory
 FRONTEND_DIR = Path(__file__).resolve().parent.parent.parent / "frontend"
